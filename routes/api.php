@@ -27,6 +27,8 @@ Route::post('auth/login', [AuthController::class, 'login'])->name('login');
 Route::middleware(['auth:sanctum'])->group(function () {
     // GET DATA LOGIN
     Route::get('auth/show', [AuthController::class, 'show'])->name('show');
+    Route::post('auth/refresh', [AuthController::class, 'refreshToken'])->name('refreshToken');
+    Route::post('auth/logout', [AuthController::class, 'logout'])->name('logout');
 
     // CRUD PENGALAMAN KERJA
     Route::get('pengalaman-kerja', [PengalamanKerjaController::class, 'show'])->name('show-pengalaman');

@@ -14,7 +14,6 @@ class AuthController extends Controller
     // LOGIN
     public function login(Request $request)
     {
-
         try {
             $validator = Validator::make($request->all(), [
                 'username' => 'required',
@@ -55,81 +54,120 @@ class AuthController extends Controller
     // REGISTER
     public function register(Request $request)
     {
+        try {
+            $validateUser = Validator::make(
+                $request->all(),
+                [
+                    'name' => 'required|max:20|min:4',
+                    'email' => 'required|email|unique:users,email',
+                    'username' => 'required|unique:users,username',
+                    'password' => 'required|min:8',
+                    'c_password' => 'required|same:password',
 
-        $validateUser = Validator::make(
-            $request->all(),
-            [
-                'name' => 'required|max:20|min:4',
-                'email' => 'required|email|unique:users,email',
-                'username' => 'required|unique:users,username',
-                'password' => 'required|min:8',
-                'c_password' => 'required|same:password',
+                ]
+            );
 
-            ]
-        );
+            if ($validateUser->fails()) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Validation Error',
+                    'errors' => $validateUser->errors(),
+                ], 422);
+            }
 
-        if ($validateUser->fails()) {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'username' => $request->username,
+                'password' => Hash::make($request->password),
+            ]);
+
+
+            return response()->json([
+                'status' => true,
+                'user' => [
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'username' => $user->username,
+                ],
+                'email_verified_at' => $user->email_verified_at,
+                'message' => 'User Created Successfully',
+                'token' => $user->createToken('api_token')->plainTextToken,
+            ], 200);
+        } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
-                'message' => 'Validation Error',
-                'errors' => $validateUser->errors(),
-            ], 422);
+                'message' => $th->getMessage(),
+            ], 500);
         }
-
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-        ]);
-
-
-        return response()->json([
-            'status' => true,
-            'user' => [
-                'name' => $user->name,
-                'email' => $user->email,
-                'username' => $user->username,
-            ],
-            'email_verified_at' => $user->email_verified_at,
-            'message' => 'User Created Successfully',
-            'token' => $user->createToken("api_token")->plainTextToken,
-        ], 200);
     }
-
 
 
     // GET USER
     public function show()
     {
-        $user = auth()->user();
+        try {
+            $user = auth()->user();
 
-        if ($user->email_verified_at == null) {
+            if ($user->email_verified_at == null) {
+                return response()->json([
+                    'status' => false,
+                    'email_verified_at' => $user->email_verified_at,
+                    'message' => 'Email not verified',
+                ], 401);
+            } else {
+                return response()->json([
+                    'status' => true,
+                    'user' => [
+                        'name' => $user->name,
+                        'username' => $user->username,
+                        'email' => $user->email,
+                    ],
+                    'email_verified_at' => $user->email_verified_at,
+                    'message' => 'User Login Details',
+                ], 200);
+            }
+        } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
-                'email_verified_at' => $user->email_verified_at,
-                'message' => 'Email not verified',
-            ], 401);
-        } else {
-            return response()->json([
-                'status' => true,
-                'user' => [
-                    'name' => $user->name,
-                    'username' => $user->username,
-                    'email' => $user->email,
-                ],
-                'email_verified_at' => $user->email_verified_at,
-                'message' => 'User Login Details',
-            ], 200);
+                'message' => $th->getMessage(),
+            ], 500);
         }
     }
 
 
-    // public function logout()
-    // {
-    //     Auth::user()->tokens()->delete();
-    //     return response()->json([
-    //         'message' => 'logout success'
-    //     ]);
-    // }
+    // REFRESH TOKEN
+    public function refreshToken(Request $request)
+    {
+        try {
+            $user = $request->user();
+            $user->tokens->each(function ($token) {
+                $token->delete();
+            });
+            $token = $user->createToken('api_token')->plainTextToken;
+
+            return response()->json(['access_token' => $token], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage(),
+            ], 500);
+        }
+    }
+
+
+    public function logout(Request $request)
+    {
+        try {
+            $request->user()->tokens()->delete();
+            return response()->json([
+                'message' => 'logout success'
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage(),
+            ], 500);
+        }
+    }
 }
