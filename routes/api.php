@@ -6,16 +6,6 @@ use App\Http\Controllers\Api\PengalamanKerja\PengalamanKerjaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
@@ -37,7 +27,3 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::put('pengalaman-kerja/{id}/update', [PengalamanKerjaController::class, 'update'])->name('update-pengalaman');
     Route::delete('pengalaman-kerja/{id}/delete', [PengalamanKerjaController::class, 'delete'])->name('delete-pengalaman');
 });
-
-// Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum', 'verify' => true], function () {
-//     Route::post('user', [AuthController::class, 'show'])->name('show');
-// });
