@@ -18,6 +18,9 @@ class AuthController extends Controller
             $validator = Validator::make($request->all(), [
                 'username' => 'required',
                 'password' => 'required',
+            ], [
+                'username.required' => 'The username field is required.',
+                'password.required' => 'The password field is required.',
             ]);
 
 
@@ -36,7 +39,7 @@ class AuthController extends Controller
                 ], 401);
             }
 
-            $user = User::where('username', $request->username,)->first();
+            $user = User::where('username', $request->username)->first();
 
             return response()->json([
                 'status' => true,
@@ -55,24 +58,22 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         try {
-            $validateUser = Validator::make(
-                $request->all(),
-                [
-                    'name' => 'required|max:20|min:4',
-                    'email' => 'required|email|unique:users,email',
-                    'username' => 'required|unique:users,username',
-                    'password' => 'required|min:8',
-                    'c_password' => 'required|same:password',
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|max:20|min:4',
+                'email' => 'required|email|unique:users,email',
+                'username' => 'required|max:20|min:4|unique:users,username',
+                'password' => 'required|min:8',
+                'c_password' => 'required|same:password',
+            ]);
 
-                ]
-            );
-
-            if ($validateUser->fails()) {
-                return response()->json([
-                    'status' => false,
-                    'message' => 'Validation Error',
-                    'errors' => $validateUser->errors(),
-                ], 422);
+            if ($validator->fails()) {
+                $errors = $validator->errors();
+                $response = [
+                    "status" => false,
+                    "message" => "Validation Error",
+                    "error" => $errors->toArray()
+                ];
+                return response()->json($response, 422);
             }
 
             $user = User::create([
@@ -82,18 +83,17 @@ class AuthController extends Controller
                 'password' => Hash::make($request->password),
             ]);
 
-
             return response()->json([
                 'status' => true,
                 'user' => [
                     'name' => $user->name,
                     'email' => $user->email,
                     'username' => $user->username,
+                    // 'token' => $user->createToken("api_token")->plainTextToken,
+                    'email_verified_at' => $user->email_verified_at,
+                    'message' => 'User Created Successfully',
                 ],
-                'email_verified_at' => $user->email_verified_at,
-                'message' => 'User Created Successfully',
-                'token' => $user->createToken('api_token')->plainTextToken,
-            ], 200);
+            ], 201);
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
@@ -123,7 +123,6 @@ class AuthController extends Controller
                         'username' => $user->username,
                         'email' => $user->email,
                     ],
-                    'email_verified_at' => $user->email_verified_at,
                     'message' => 'User Login Details',
                 ], 200);
             }
