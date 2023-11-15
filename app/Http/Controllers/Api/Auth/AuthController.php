@@ -109,23 +109,17 @@ class AuthController extends Controller
         try {
             $user = auth()->user();
 
-            if ($user->email_verified_at == null) {
-                return response()->json([
-                    'status' => false,
-                    'email_verified_at' => $user->email_verified_at,
-                    'message' => 'Email not verified',
-                ], 401);
-            } else {
-                return response()->json([
-                    'status' => true,
-                    'user' => [
-                        'name' => $user->name,
-                        'username' => $user->username,
-                        'email' => $user->email,
-                    ],
-                    'message' => 'User Login Details',
-                ], 200);
-            }
+            return response()->json([
+                'status' => true,
+                'user' => [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'username' => $user->username,
+                    'email' => $user->email,
+                ],
+                'message' => 'User Login Details',
+            ], 200);
+            
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
@@ -161,7 +155,7 @@ class AuthController extends Controller
             $request->user()->tokens()->delete();
             return response()->json([
                 'message' => 'logout success'
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
