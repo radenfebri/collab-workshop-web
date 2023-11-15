@@ -28,14 +28,16 @@ class LoginController extends Controller
         ]);
 
         $credentials = $request->only('username', 'password');
-        if (Auth::attempt($credentials)) {
-
+        if (Auth::attempt($credentials) && Auth::user()->role == 'Admin') {
             Alert::success('Berhasil', 'Anda berhasil login');
-            return redirect()->intended('dashboard');
+            return redirect()->route('dashboard');
+        } elseif (Auth::attempt($credentials) && Auth::user()->role == 'User') {
+            Alert::success('Berhasil', 'Anda berhasil login');
+            return redirect()->route('user');
+        } else {
+            Alert::error('Gagal', 'Anda gagal login');
+            return redirect("login");
         }
-
-        Alert::error('Gagal', 'Anda gagal login');
-        return redirect("login");
     }
 
 
