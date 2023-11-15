@@ -34,6 +34,7 @@ Route::middleware(['cekLogin', 'cekRole:User'])->group(function () {
     Route::get('user', [DashboardUserController::class, 'user'])->name('user');
     Route::get('histori-pesanan', [HistoriPesananController::class, 'index'])->name('histori-pesanan');
     Route::get('histori-pesanan/{id}', [HistoriPesananController::class, 'show'])->name('show.histori-pesanan');
+    Route::get('histori-pesanan/{id}/destroy', [HistoriPesananController::class, 'destroy'])->name('destroy.histori-pesanan');
 });
 
 

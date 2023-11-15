@@ -8,6 +8,7 @@ use App\Models\Buku;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HistoriPesananController extends Controller
 {
@@ -27,5 +28,14 @@ class HistoriPesananController extends Controller
         $data = Order::findOrFail(decrypt($id));
         $buku = Buku::all();
         return view('user.detail', compact('data', 'buku'));
+    }
+
+    public function destroy($id)
+    {
+        $data = Order::findOrFail(decrypt($id));
+        $data->delete();
+
+        Alert::success('Berhasil', 'Data Berhasil tidak diproses');
+        return back();
     }
 }
