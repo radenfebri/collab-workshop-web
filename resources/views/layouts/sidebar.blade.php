@@ -30,11 +30,39 @@
                             </ul>
                         </div>
                     </li>
+
+                    <li class="nav-item {{ request()->is('pesanan', 'pesanan/*') ? 'active' : ''}}">
+                        <a href="{{ route('pesanan.index') }}">
+                            <i class="fa fa-cart-plus"></i>
+                            <p>Pesanan Masuk</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{ request()->is('metode-bayar', 'metode-bayar/*') ? 'active' : ''}}">
+                        <a href="{{ route('metode-bayar.index') }}">
+                            <i class="fa fa-money-bill"></i>
+                            <p>Metode Bayar</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{ request()->is('manajemen-user', 'manajemen-user/*') ? 'active' : ''}}">
+                        <a href="{{ route('manajemen-user.index') }}">
+                            <i class="fa fa-user"></i>
+                            <p>Manajemen User</p>
+                        </a>
+                    </li>
                 @else
                     <li class="nav-item {{ request()->is('user') ? 'active' : ''}}">
                         <a href="{{ route('user') }}">
                             <i class="fas fa-home"></i>
                             <p>Dashboard</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{ request()->is('histori-pesanan', 'histori-pesanan/*') ? 'active' : ''}}">
+                        <a href="{{ route('histori-pesanan') }}">
+                            <i class="fa fa-cart-plus"></i>
+                            <p>Pesanan Saya</p>
                         </a>
                     </li>
                 @endif

@@ -33,9 +33,16 @@ class KategoriBukuController extends Controller
 
     public function getid($id)
     {
-        $data = KategoriBuku::findOrFail($id);
+        try {
+            $data = KategoriBuku::findOrFail($id);
 
-        return response()->json(['data' => $data], 200);
+            return response()->json(['data' => $data], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage(),
+            ], 500);
+        }
     }
 
 

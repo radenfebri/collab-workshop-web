@@ -1,17 +1,12 @@
 <?php
 
 use App\Http\Controllers\Api\Auth\AuthController;
-use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Buku\BukuController;
 use App\Http\Controllers\Api\Buku\KategoriBukuController;
-use App\Http\Controllers\Api\PengalamanKerja\PengalamanKerjaController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\Order\MetodeController;
+use App\Http\Controllers\Api\Order\OrderController;
 use Illuminate\Support\Facades\Route;
 
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 
 // AUTH 
 Route::post('auth/register', [AuthController::class, 'register']);
@@ -25,15 +20,14 @@ Route::middleware(['auth:sanctum'])->group(function () {
     // CRUD KATEGORI BUKU
     Route::get('kategori-buku', [KategoriBukuController::class, 'show']);
     Route::get('kategori-buku/{id}', [KategoriBukuController::class, 'getid']);
-    // Route::post('kategori-buku/create', [KategoriBukuController::class, 'create']);
-    // Route::put('kategori-buku/{id}/update', [KategoriBukuController::class, 'update']);
-    // Route::delete('kategori-buku/{id}/delete', [KategoriBukuController::class, 'delete']);
 
     // CRUD BUKU
     Route::get('buku', [BukuController::class, 'show']);
     Route::get('buku/{id}', [BukuController::class, 'getid']);
-    // Route::post('buku/create', [BukuController::class, 'create']);
-    // Route::put('buku/{id}/update', [BukuController::class, 'update']);
-    // Route::delete('buku/{id}/delete', [BukuController::class, 'delete']);
 
+    // CRUD PESANAN
+    Route::post('checkout', [OrderController::class, 'checkout']);
+    Route::get('pesanan', [OrderController::class, 'pesanan']);
+    Route::get('metode-bayar', [MetodeController::class, 'show']);
+    Route::get('metode-bayar/{id}', [MetodeController::class, 'getid']);
 });

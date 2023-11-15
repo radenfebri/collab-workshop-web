@@ -80,6 +80,7 @@ class AuthController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'username' => $request->username,
+                'role' => 'User',
                 'password' => Hash::make($request->password),
             ]);
 
@@ -89,6 +90,7 @@ class AuthController extends Controller
                     'name' => $user->name,
                     'email' => $user->email,
                     'username' => $user->username,
+                    'role' => 'User',
                     // 'token' => $user->createToken("api_token")->plainTextToken,
                     'email_verified_at' => $user->email_verified_at,
                     'message' => 'User Created Successfully',
