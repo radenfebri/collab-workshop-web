@@ -90,7 +90,7 @@
                                                         <i class="fa fa-recycle"></i>
                                                     </a>
                                                     
-                                                    <a href="{{ route('pesanan.show', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Buku"
+                                                    <a href="{{ route('pesanan.show', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Pesanan"
                                                         onclick="return confirm('Apakah anda yakin batalkan pesanan {{ $item->name }} ?')">
                                                         <i class="fa fa-times"></i>
                                                     </a>
