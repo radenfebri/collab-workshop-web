@@ -1,24 +1,32 @@
 <?php
 
-use App\Http\Controllers\Backend\DashboardController as BackendDashboardController;
-use App\Http\Controllers\Backend\PendidikanController;
-use App\Http\Controllers\Backend\PengalamanKerjaController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Backend\BukuController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\KategoriBukuController;
+use App\Http\Controllers\frontend\DashboardUserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
 
-Route::redirect('/', 'login')->name('index');
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
 
-Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 
-Route::middleware(['ceklogin'])->group(function () {
-    Route::get('dashboard', [BackendDashboardController::class, 'index'])->name('dashboard');
-    Route::resource('pengalaman-kerja', PengalamanKerjaController::class);
-    Route::resource('pendidikan', PendidikanController::class);
+Route::middleware(['cekLogin', 'cekRole:Admin'])->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('kategori-buku', KategoriBukuController::class);
+    Route::resource('buku', BukuController::class);
 });
+
+Route::middleware(['cekLogin', 'cekRole:User'])->group(function () {
+    Route::get('user', [DashboardUserController::class, 'user'])->name('user');
+});
+
 
 
 // Route::get('foo', function () {

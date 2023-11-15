@@ -69,7 +69,10 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'name' => $data['name'],
             'email' => $data['email'],
+            'role' => 'User',
             'password' => Hash::make($data['password']),
         ]);
+
+        return redirect()->route('welcome');
     }
 }
