@@ -83,9 +83,9 @@
                                             <td>{{ $item->kategoribuku->name }} </td>
                                             <td>
                                                 @if ($item->selling_price == null)
-                                                    {{ number_format($item->original_price) }} 
+                                                    Rp. {{ number_format($item->original_price) }} 
                                                 @else
-                                                    {{ number_format($item->selling_price) }} 
+                                                    RP. {{ number_format($item->selling_price) }} 
                                                 @endif
                                             </td>
                                             <td>{{ number_format($item->qty) }} </td>
