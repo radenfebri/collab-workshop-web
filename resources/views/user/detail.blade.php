@@ -40,7 +40,7 @@
                                     <div class="col-md-8 col-lg-6">
                                         <div class="form-group">
                                             <label for="email2">Kode Pesanan <span style="color: red">*</span></label>
-                                            <input type="text" class="form-control @error ('tracking_no') is-invalid @enderror" name="tracking_no" readonly value="{{ $data->tracking_no }}" placeholder="Atas Nama">
+                                            <input type="text" class="form-control @error ('tracking_no') is-invalid @enderror" name="tracking_no" value="{{ $data->tracking_no }}" placeholder="Atas Nama">
                                             @error('tracking_no')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -52,7 +52,7 @@
                                     <div class="col-md-8 col-lg-6">
                                         <div class="form-group">
                                             <label for="email2">Nama Buku <span style="color: red">*</span></label>
-                                            <input type="text" class="form-control @error ('buku_id') is-invalid @enderror" name="buku_id" readonly value="{{ $data->buku->name }}" placeholder="Nama Bank">
+                                            <input type="text" class="form-control @error ('buku_id') is-invalid @enderror" name="buku_id" value="{{ $data->buku->name }}" placeholder="Nama Bank">
                                             @error('buku_id')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -64,7 +64,7 @@
                                     <div class="col-md-8 col-lg-6">
                                         <div class="form-group">
                                             <label for="email2">Metode Bayar<span style="color: red">*</span></label>
-                                            <input type="text" class="form-control @error ('metode') is-invalid @enderror" name="metode" readonly value="{{ $data->bank->nama_bank }}" placeholder="No Rekening">
+                                            <input type="text" class="form-control @error ('metode') is-invalid @enderror" name="metode" value="{{ $data->bank->nama_bank }}" placeholder="No Rekening">
                                             @error('metode')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -77,7 +77,7 @@
                                     <div class="col-md-8 col-lg-6">
                                         <div class="form-group">
                                             <label for="email2">Total Bayar<span style="color: red">*</span></label>
-                                            <input type="text" class="form-control @error ('metode') is-invalid @enderror" name="metode" readonly value="Rp. {{ number_format($data->total_price) }}" placeholder="No Rekening">
+                                            <input type="text" class="form-control @error ('metode') is-invalid @enderror" name="metode" value="Rp. {{ number_format($data->total_price) }}" placeholder="No Rekening">
                                             @error('metode')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -89,7 +89,7 @@
                                     <div class="col-md-8 col-lg-6">
                                         <div class="form-group">
                                             <label for="email2">No Rekening<span style="color: red">*</span></label>
-                                            <input type="text" class="form-control @error ('metode') is-invalid @enderror" name="metode" readonly value="{{ $data->bank->no_rek }}" placeholder="No Rekening">
+                                            <input type="text" class="form-control @error ('metode') is-invalid @enderror" name="metode" value="{{ $data->bank->no_rek }}" placeholder="No Rekening">
                                             @error('metode')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -101,7 +101,7 @@
                                     <div class="col-md-8 col-lg-6">
                                         <div class="form-group">
                                             <label for="email2">Nama Pemilik<span style="color: red">*</span></label>
-                                            <input type="text" class="form-control @error ('metode') is-invalid @enderror" name="metode" readonly value="{{ $data->bank->atas_nama }}" placeholder="No Rekening">
+                                            <input type="text" class="form-control @error ('metode') is-invalid @enderror" name="metode" value="{{ $data->bank->atas_nama }}" placeholder="No Rekening">
                                             @error('metode')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -113,7 +113,7 @@
                                     <div class="col-md-8 col-lg-6">
                                         <div class="form-group">
                                             <label for="email2">Deskripsi Buku<span style="color: red">*</span></label>
-                                            <textarea type="text" class="form-control @error ('metode') is-invalid @enderror" name="metode" readonly placeholder="No Rekening">{{ $data->buku->description }}</textarea>
+                                            <textarea type="text" class="form-control @error ('metode') is-invalid @enderror" name="metode" placeholder="No Rekening">{{ $data->buku->description }}</textarea>
                                             @error('metode')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -125,7 +125,7 @@
                                     <div class="col-md-8 col-lg-6">
                                         <div class="form-group">
                                             <label for="email2">Status Pesanan <span style="color: red">*</span></label>
-                                            <select name="role" readonly disabled class="form-control @error('role') is-invalid @enderror">
+                                            <select name="role" disabled class="form-control @error('role') is-invalid @enderror">
                                                 @if ($data->status == 1)
                                                     <option>Berhasil</option>
                                                 @else
