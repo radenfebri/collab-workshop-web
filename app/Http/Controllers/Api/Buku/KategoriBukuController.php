@@ -10,11 +10,6 @@ use Illuminate\Support\Str;
 
 class KategoriBukuController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('cekRole:Admin');
-    }
-
     public function show()
     {
         try {
