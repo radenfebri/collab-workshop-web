@@ -8,7 +8,7 @@
     <div class="col-md-12 mb-3">
         
         <h2>Sign In</h2>
-        <p>Enter your username and password to login</p>
+        <p>Masukkan username & password untuk melakukan login.</p>
         
     </div>
     
@@ -68,7 +68,7 @@
     
     <div class="col-12">
         <div class="text-center">
-            <p class="mb-0">Dont't have an account ? <a href="{{ route('register') }}" class="text-warning">Sign Up</a></p>
+            <p class="mb-0">Apakah anda belum memiliki akun? <a href="{{ route('register') }}" class="text-warning">Sign Up</a></p>
         </div>
     </div>
     
@@ -76,7 +76,7 @@
         <div class="text-center">
             @if (Route::has('password.request'))
             <a class="mb-0 text-warning" href="{{ route('password.request') }}">
-                Forgot Your Password?
+                Lupa password?
             </a>
             @endif
         </div>

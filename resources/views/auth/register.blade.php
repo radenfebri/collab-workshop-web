@@ -7,8 +7,8 @@
 <div class="row">
     <div class="col-md-12 mb-3">
         
-        <h2>Sign In</h2>
-        <p>Enter your email and password to login</p>
+        <h2>Register</h2>
+        <p>Buat akun anda sebelum login ke aplikasi ini.</p>
         
     </div>
 
@@ -106,7 +106,7 @@
 
     <div class="col-12">
         <div class="text-center">
-            <p class="mb-0">Already have an account ? <a href="{{ route('login') }}" class="text-warning">Sign In</a></p>
+            <p class="mb-0">Apakah anda sudah memiliki akun? <a href="{{ route('login') }}" class="text-warning">Sign In</a></p>
         </div>
     </div>
     
