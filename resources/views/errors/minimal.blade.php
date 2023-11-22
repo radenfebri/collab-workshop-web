@@ -23,11 +23,7 @@
             </div>
             <h2>@yield('title')</h2>
             <p>@yield('message')</p>
-                @if (Auth::check())
-                    <a href="{{ route('login') }}">Kembali ke Login</a>
-                @else
-                    <a href="{{ route('dashboard') }}">Kembali ke Dashbord</a>
-                @endif
+                <a href="{{ url()->previous() }}">Kembali</a>
             </div>
         </div>
         

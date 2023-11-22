@@ -76,32 +76,32 @@
         <div class="container">
             <section class="features-overview" id="features-section" >
                 <div class="content-header">
-                    <h2>How does it works</h2>
-                    <h6 class="section-subtitle text-muted">One theme that serves as an easy-to-use operational toolkit<br>that meets customer's needs.</h6>
+                    <h2>Tuku Buku Handal</h2>
+                    <h6 class="section-subtitle text-muted">Salah satu platform yang melayani berbagai macam buku,<br>layanan kami memiliki keunggulan.</h6>
                 </div>
                 <div class="d-md-flex justify-content-between">
                     <div class="grid-margin d-flex justify-content-start">
                         <div class="features-width">
                             <img src="{{ asset('template-frontend') }}/images/Group12.svg" alt="" class="img-icons">
-                            <h5 class="py-3">Speed<br>Optimisation</h5>
-                            <p class="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                            <a href="#"><p class="readmore-link">Readmore</p></a>  
+                            <h5 class="py-3">Platform<br>Stabil</h5>
+                            <p class="text-muted">Website dan Aplikasi yang sudah teruji, memiliki kecepatan yang handal.</p>
+                            <a href="#"><p class="readmore-link">Selengkapnya..</p></a>  
                         </div>
                     </div>
                     <div class="grid-margin d-flex justify-content-center">
                         <div class="features-width">
                             <img src="{{ asset('template-frontend') }}/images/Group7.svg" alt="" class="img-icons">
-                            <h5 class="py-3">SEO and<br>Backlinks</h5>
-                            <p class="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                            <a href="#"><p class="readmore-link">Readmore</p></a>
+                            <h5 class="py-3">Harga Buku<br>Terjangkau</h5>
+                            <p class="text-muted">Selain banyak macam buku, juga memiliki harga yang cukup terjangkau relatif murah.</p>
+                            <a href="#"><p class="readmore-link">Selengkaonya..</p></a>
                         </div>
                     </div>
                     <div class="grid-margin d-flex justify-content-end">
                         <div class="features-width">
                             <img src="{{ asset('template-frontend') }}/images/Group5.svg" alt="" class="img-icons">
-                            <h5 class="py-3">Content<br>Marketing</h5>
-                            <p class="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                            <a href="#"><p class="readmore-link">Readmore</p></a>
+                            <h5 class="py-3">Transaksi<br>Mudah</h5>
+                            <p class="text-muted">Berbagai macam metode pembayaran yang disediakan meliputi bank transfer indonesia.</p>
+                            <a href="#"><p class="readmore-link">Selengkapnya..</p></a>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
             <section class="digital-marketing-service" id="digital-marketing-section">
                 <div class="row align-items-center">
                     <div class="col-12 col-lg-7 grid-margin grid-margin-lg-0" data-aos="fade-right">
-                        <h3 class="m-0">We Offer a Full Range<br>of Digital Marketing Services!</h3>
+                        <h3 class="m-0">Sukses dengan suka<br>Membaca buku!</h3>
                         <div class="col-lg-7 col-xl-6 p-0">
                             <p class="py-4 m-0 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                             <p class="font-weight-medium text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer</p>
@@ -124,20 +124,20 @@
                         <img src="{{ asset('template-frontend') }}/images/Group2.png" alt="" class="img-fluid">
                     </div>
                     <div class="col-12 col-lg-5 flex-item grid-margin" data-aos="fade-left">
-                        <h3 class="m-0">Leading Digital Agency<br>for  Business Solution.</h3>
+                        <h3 class="m-0">Temukan solusi anda<br>di Platform Tuku Buku.</h3>
                         <div class="col-lg-9 col-xl-8 p-0">
                             <p class="py-4 m-0 text-muted">Power-packed with impressive features and well-optimized, this template is designed to provide the best performance in all circumstances.</p>
                             <p class="pb-2 font-weight-medium text-muted">Its smart features make it a powerful stand-alone website building tool.</p>
                         </div>
-                        <button class="btn btn-info">Readmore</button>
+                        <button class="btn btn-info">Selengkapnya..</button>
                     </div>
                 </div>
             </section>     
             <section class="case-studies" id="case-studies-section">
                 <div class="row grid-margin">
                     <div class="col-12 text-center pb-5">
-                        <h2>Our case studies</h2>
-                        <h6 class="section-subtitle text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum.</h6>
+                        <h2>Kategori Buku</h2>
+                        <h6 class="section-subtitle text-muted">Berbagai macam buku yang di sediakan.</h6>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 stretch-card mb-3 mb-lg-0" data-aos="zoom-in">
                         <div class="card color-cards">
@@ -149,7 +149,7 @@
                                     <div class="card-desc-box d-flex align-items-center justify-content-around">
                                         <div>
                                             <h6 class="text-white pb-2 px-3">Know more about Online marketing</h6>
-                                            <button class="btn btn-white">Read More</button>
+                                            <button class="btn btn-white">Selengkapnya..</button>
                                         </div>
                                     </div>
                                 </div>   
@@ -170,7 +170,7 @@
                                     <div class="card-desc-box d-flex align-items-center justify-content-around">
                                         <div>
                                             <h6 class="text-white pb-2 px-3">Know more about Web Development</h6>
-                                            <button class="btn btn-white">Read More</button>
+                                            <button class="btn btn-white">Selengkapnya..</button>
                                         </div>
                                     </div>
                                 </div>   
@@ -191,7 +191,7 @@
                                     <div class="card-desc-box d-flex align-items-center justify-content-around">
                                         <div>
                                             <h6 class="text-white pb-2 px-3">Know more about Web Designing</h6>
-                                            <button class="btn btn-white">Read More</button>
+                                            <button class="btn btn-white">Selengkapnya..</button>
                                         </div>
                                     </div>
                                 </div>   
@@ -212,7 +212,7 @@
                                     <div class="card-desc-box d-flex align-items-center justify-content-around">
                                         <div>
                                             <h6 class="text-white pb-2 px-3">Know more about Software Development</h6>
-                                            <button class="btn btn-white">Read More</button>
+                                            <button class="btn btn-white">Selengkapnya..</button>
                                         </div>
                                     </div>
                                 </div>   
@@ -228,8 +228,8 @@
             <section class="customer-feedback" id="feedback-section">
                 <div class="row">
                     <div class="col-12 text-center pb-5">
-                        <h2>What our customers have to say</h2>
-                        <h6 class="section-subtitle text-muted m-0">Lorem ipsum dolor sit amet, tincidunt vestibulum.</h6>
+                        <h2>Tim Pengembang Aplikasi</h2>
+                        <h6 class="section-subtitle text-muted m-0">Berikut Pengembang platform Tuku Buku.</h6>
                     </div>
                     <div class="owl-carousel owl-theme grid-margin">
                         <div class="card customer-cards">
@@ -337,11 +337,11 @@
             <section class="contact-us" id="contact-section">
                 <div class="contact-us-bgimage grid-margin" >
                     <div class="pb-4">
-                        <h4 class="px-3 px-md-0 m-0" data-aos="fade-down">Do you have any projects?</h4>
-                        <h4 class="pt-1" data-aos="fade-down">Contact us</h4>
+                        <h4 class="px-3 px-md-0 m-0" data-aos="fade-down">Apakah Anda punya proyek? </h4>
+                        <h4 class="pt-1" data-aos="fade-down">Hubungi kami</h4>
                     </div>
                     <div data-aos="fade-up">
-                        <button class="btn btn-rounded btn-outline-danger">Contact us</button>
+                        <button class="btn btn-rounded btn-outline-danger">Hubungi kami</button>
                     </div>          
                 </div>
             </section>

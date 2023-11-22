@@ -36,6 +36,10 @@ class BukuController extends Controller
             $buku = Buku::with(['kategoribuku:id,name'])->find($id);
 
             if (!$buku) {
+                return response()->json(['message' => 'Data not found'], 404);
+            }
+
+            if (!$buku) {
                 return response()->json(['message' => 'Buku not found'], 404);
             }
 
