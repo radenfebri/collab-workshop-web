@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('template-frontend') }}/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="{{ asset('template-frontend') }}/vendors/aos/css/aos.css">
     <link rel="stylesheet" href="{{ asset('template-frontend') }}/css/style.min.css">
+	<link rel="icon" href="{{ asset('template-dashboard') }}/img/icon.ico" type="image/x-icon"/>
 </head>
 <body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
     <header id="header-section">

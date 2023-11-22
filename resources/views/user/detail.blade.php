@@ -18,7 +18,7 @@
                         <i class="flaticon-right-arrow"></i>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('metode-bayar.index') }}">Metode Bayar</a>
+                        <a href="{{ route('histori-pesanan') }}">Pesanan Saya</a>
                     </li>
                     <li class="separator">
                         <i class="flaticon-right-arrow"></i>

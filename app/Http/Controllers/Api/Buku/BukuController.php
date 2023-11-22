@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\Storage;
 
 class BukuController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('cekRole:Admin');
-    }
-
     public function show()
     {
         try {
