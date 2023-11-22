@@ -86,4 +86,23 @@ class OrderController extends Controller
             ], 500);
         }
     }
+
+    public function delete($id)
+    {
+        try {
+            $data = Order::findOrFail($id);
+            if (!$data) {
+                return response()->json(['message' => 'Data not found'], 404);
+            }
+
+            $data->delete();
+
+            return response()->json(['message' => 'Data deleted successfully'], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => 'Failed to delete data',
+                'error' => $th->getMessage(),
+            ], 500);
+        }
+    }
 }

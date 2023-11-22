@@ -31,6 +31,10 @@ class KategoriBukuController extends Controller
         try {
             $data = KategoriBuku::findOrFail($id);
 
+            if (!$data) {
+                return response()->json(['message' => 'Data not found'], 404);
+            }
+
             return response()->json(['data' => $data], 200);
         } catch (\Throwable $th) {
             return response()->json([
