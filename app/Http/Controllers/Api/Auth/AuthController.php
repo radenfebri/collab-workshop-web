@@ -95,7 +95,7 @@ class AuthController extends Controller
                     'role' => 'User',
                     'message' => 'User Created Successfully',
                 ],
-            ], 200);
+            ], 201);
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
