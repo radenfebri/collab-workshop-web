@@ -44,7 +44,10 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User Logged In Successfully',
-                'token' => $user->createToken("api_token")->plainTextToken,
+                'data' => [
+                    'user' => $user,
+                    'token' => $user->createToken("api_token")->plainTextToken,
+                ],
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([
@@ -63,7 +66,6 @@ class AuthController extends Controller
                 'email' => 'required|email|unique:users,email',
                 'username' => 'required|max:20|min:4|unique:users,username',
                 'password' => 'required|min:8',
-                'c_password' => 'required|same:password',
             ]);
 
             if ($validator->fails()) {
@@ -86,13 +88,11 @@ class AuthController extends Controller
 
             return response()->json([
                 'status' => true,
-                'user' => [
+                'data' => [
                     'name' => $user->name,
                     'email' => $user->email,
                     'username' => $user->username,
                     'role' => 'User',
-                    // 'token' => $user->createToken("api_token")->plainTextToken,
-                    'email_verified_at' => $user->email_verified_at,
                     'message' => 'User Created Successfully',
                 ],
             ], 201);
@@ -121,7 +121,6 @@ class AuthController extends Controller
                 ],
                 'message' => 'User Login Details',
             ], 200);
-            
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
