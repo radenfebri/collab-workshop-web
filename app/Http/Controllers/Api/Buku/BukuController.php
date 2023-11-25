@@ -16,11 +16,13 @@ class BukuController extends Controller
         try {
             $data = Buku::with(['kategoribuku:id,name'])->orderBy('created_at', 'desc')->get();
             $baseUrl = url('storage/');
+
             foreach ($data as $buku) {
-                $buku->cover = $baseUrl . '/' . $buku->cover;
+                $buku->cover = $baseUrl . '/' . str_replace(' ', '%20', $buku->cover);
                 $buku->kategori = $buku->kategoribuku->name;
                 unset($buku->kategoribuku_id);
             }
+
             return response()->json(['data' => $data], 200);
         } catch (\Throwable $th) {
             return response()->json([

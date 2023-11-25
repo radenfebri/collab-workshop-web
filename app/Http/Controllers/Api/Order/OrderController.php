@@ -16,9 +16,25 @@ class OrderController extends Controller
     {
         try {
             $user_id = Auth::id();
-            $pesanan = Order::where('user_id', $user_id)->get();
+            $pesanan = Order::where('user_id', $user_id)->with('buku', 'bank')->get();
 
-            return response()->json(['pesanan' => $pesanan], 200);
+            $detailpesanan = $pesanan->map(function ($item) {
+                return [
+                    'id' => $item->id,
+                    'nama_user' => $item->name,
+                    'name_buku' => $item->buku->name, // Mengambil nama buku dari relasi
+                    'name' => $item->name,
+                    'email' => $item->email,
+                    'status' => $item->status,
+                    'nama_bank' => $item->bank->nama_bank, // Mengambil nama bank dari relasi
+                    'no_rek' => $item->bank->no_rek, // Mengambil nama bank dari relasi
+                    'atas_nama' => $item->bank->atas_nama, // Mengambil nama bank dari relasi
+                    'tracking_no' => $item->tracking_no,
+                    'total_price' => $item->total_price,
+                ];
+            });
+
+            return response()->json(['pesanan' => $detailpesanan], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
@@ -65,7 +81,7 @@ class OrderController extends Controller
                         'id' => $buku->id,
                         'name' => $buku->name,
                         'description' => $buku->description,
-                        'cover' => $buku->cover = $baseUrl . '/' . $buku->cover,
+                        'cover' => $buku->cover = $baseUrl . '/' . str_replace(' ', '%20', $buku->cover),
                     ],
                     'bank' => [
                         'id' => $bank->id,

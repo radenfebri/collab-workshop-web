@@ -44,10 +44,8 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User Logged In Successfully',
-                'data' => [
-                    'user' => $user,
-                    'token' => $user->createToken("api_token")->plainTextToken,
-                ],
+                'user' => $user,
+                'token' => $user->createToken("api_token")->plainTextToken,
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([
@@ -113,13 +111,13 @@ class AuthController extends Controller
 
             return response()->json([
                 'status' => true,
+                'message' => 'User Login Details',
                 'user' => [
                     'id' => $user->id,
                     'name' => $user->name,
                     'username' => $user->username,
                     'email' => $user->email,
                 ],
-                'message' => 'User Login Details',
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([

@@ -20,7 +20,7 @@ class Order extends Model
 
     public function bank()
     {
-        return $this->belongsTo(Bank::class, 'metode');
+        return $this->belongsTo(Bank::class, 'metode', 'id');
     }
 
     public function buku()

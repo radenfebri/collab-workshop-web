@@ -11,11 +11,16 @@ class MetodeController extends Controller
     {
         try {
             $data = Bank::latest()->get();
-            return response()->json(['data' => $data], 200);
+            return response()->json([
+                'status' => true,
+                'message' => 'Data retrieved successfully',
+                'data' => $data
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
-                'message' => $th->getMessage(),
+                'message' => 'Failed to retrieve data',
+                'error' => $th->getMessage(),
             ], 500);
         }
     }
