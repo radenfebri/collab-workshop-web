@@ -22,7 +22,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('kategori-buku/{id}', [KategoriBukuController::class, 'getid']);
 
     // API BUKU
-    // Route::get('buku', [BukuController::class, 'show']);
+    Route::get('buku', [BukuController::class, 'show']);
     Route::get('buku/{id}', [BukuController::class, 'getid']);
 
     // API PESANAN
@@ -34,6 +34,4 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('metode-bayar', [MetodeController::class, 'show']);
     Route::get('metode-bayar/{id}', [MetodeController::class, 'getid']);
 });
-
-Route::get('buku', [BukuController::class, 'show']);
 
