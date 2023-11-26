@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -43,6 +44,12 @@ class UserController extends Controller
     
     public function destroy($id){
         User::destroy(decrypt($id));
+
+        $cek_transaction = Order::where('user_id', $id)->get();
+        if ($cek_transaction) {
+            Order::where('user_id', $id)->delete();
+        }
+        
         Alert::success('Berhasil', 'Data berhasil dihapus');
         
         $data = User::latest()->get();
