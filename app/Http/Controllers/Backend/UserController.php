@@ -39,4 +39,12 @@ class UserController extends Controller
         Alert::success('Berhasil', 'Data berhasil diupdate');
         return redirect()->route('manajemen-user.index');
     }
+
+    public function destroy($id){
+        User::destroy(decrypt($id));
+        Alert::success('Berhasil', 'Data berhasil dihapus');
+        
+        $data = User::latest()->get();
+        return view('backend.manajemen-user.index', compact('data'));
+    }
 }

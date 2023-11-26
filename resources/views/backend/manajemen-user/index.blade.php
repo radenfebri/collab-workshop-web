@@ -84,10 +84,11 @@
                                                         <i class="fa fa-edit"></i>
                                                     </a>
                                                     
-                                                    <a href="{{ route('manajemen-user.destroy', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Hapus User"
-                                                        onclick="return confirm('Apakah anda yakin menghapus user {{ $item->name }} ?')">
-                                                        <i class="fa fa-times"></i>
-                                                    </a>
+                                                    <form action="{{ route('manajemen-user.destroy', encrypt($item->id)) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-link btn-danger btn-lg" onclick="return confirm('Apakah anda yakin menghapus user {{ $item->name }} ?')"><i class="fa fa-times"></i></button>
+                                                    </form>
                                                 </div>
                                                 @endif
                                             </td>
