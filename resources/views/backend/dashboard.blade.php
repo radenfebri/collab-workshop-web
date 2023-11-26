@@ -59,7 +59,7 @@
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-3">
-                    <a href="{{ route('pesanan.index') }}" style="text-decoration:none" >
+                    <a href="{{ route('trx-selesai') }}" style="text-decoration:none" >
                         <div class="card card-stats card-round">
                             <div class="card-body">
                                 <div class="row align-items-center">
@@ -80,7 +80,7 @@
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-3">
-                    <a href="{{ route('pesanan.index') }}" style="text-decoration:none" >
+                    <a href="{{ route('trx-proses') }}" style="text-decoration:none" >
                         <div class="card card-stats card-round">
                             <div class="card-body">
                                 <div class="row align-items-center">
@@ -165,7 +165,7 @@
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-3">
-                    <a href="{{ route('manajemen-user.index') }}" style="text-decoration:none" >
+                    <a href="{{ route('total-user') }}" style="text-decoration:none" >
                         <div class="card card-stats card-round">
                             <div class="card-body">
                                 <div class="row align-items-center">
@@ -176,7 +176,7 @@
                                     </div>
                                     <div class="col col-stats ml-3 ml-sm-0">
                                         <div class="numbers">
-                                            <p class="card-category">Total Akun</p>
+                                            <p class="card-category">Total User</p>
                                             <h4 class="card-title">{{ $total_user }}</h4>
                                         </div>
                                     </div>
@@ -186,7 +186,7 @@
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-3">
-                    <a href="" style="text-decoration:none" >
+                    <a href="{{ route('total-admin') }}" style="text-decoration:none" >
                         <div class="card card-stats card-round">
                             <div class="card-body">
                                 <div class="row align-items-center">

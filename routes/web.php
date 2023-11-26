@@ -28,6 +28,10 @@ Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::middleware(['cekLogin', 'cekRole:Admin'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('buku/stok-habis', [DashboardController::class, 'stok'])->name('stok');
+    Route::get('manajemen-user/user', [DashboardController::class, 'user'])->name('total-user');
+    Route::get('manajemen-user/admin', [DashboardController::class, 'admin'])->name('total-admin');
+    Route::get('pesanan/selesai', [DashboardController::class, 'selesai'])->name('trx-selesai');
+    Route::get('pesanan/diproses', [DashboardController::class, 'proses'])->name('trx-proses');
     Route::resource('kategori-buku', KategoriBukuController::class);
     Route::resource('buku', BukuController::class);
     Route::resource('pesanan', PesananController::class);

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Tuku Buku - Aplikasi ecommerce buku</title>
+    <title>Tuku Buku - Buku Online Indonesia</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand-lg pl-3 pl-sm-0" id="navbar">
             <div class="container">
                 <div class="navbar-brand-wrapper d-flex w-100">
-                    <img src="{{ asset('template-frontend') }}/images/Group2.svg" alt="">
+                    <a href=""><img src="{{ asset('template-frontend') }}/images/Group2.svg" alt=""></a>
                     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="mdi mdi-menu navbar-toggler-icon"></span>
                     </button> 
@@ -26,7 +26,7 @@
                     <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
                         <li class="d-flex align-items-center justify-content-between pl-4 pl-lg-0">
                             <div class="navbar-collapse-logo">
-                                <img src="{{ asset('template-frontend') }}/images/Group2.svg" alt="">
+                                <a href=""><img src="{{ asset('template-frontend') }}/images/Group2.svg" alt=""></a>
                             </div>
                             <button class="navbar-toggler close-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="mdi mdi-close navbar-toggler-icon pl-5"></span>
@@ -54,7 +54,6 @@
                             @endif
                         </li>
 
-                            {{-- <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Contact Us</button> --}}
                         
                     </ul>
                 </div>
@@ -64,10 +63,10 @@
     <div class="banner" >
         <div class="container">
             <h1 class="font-weight-semibold">Tuku Buku Online<br>Aplikasi Zaman Now.</h1>
-            <h6 class="font-weight-normal text-muted pb-3">Merupakan sbuah aplikasi tempat beli buku yang berbasis multi platform, dibuat dari flutter dan laravel.</h6>
+            <h6 class="font-weight-normal text-muted pb-3">Membeli buku menjadi lebih praktis melalui Tuku Buku, sebuah platform yang dapat diakses melalui Android maupun situs web. Dengan ini, proses transaksi secara daring menjadi lebih mudah, tanpa perlu menunggu antrian di toko fisik.</h6>
             <div>
-                <button class="btn btn-opacity-light mr-1">Mulai sekarang</button>
-                <button class="btn btn-opacity-success ml-1">Pelajari Lanjut</button>
+                <a href="{{ route('register') }}" class="btn btn-opacity-light mr-1">Mulai sekarang</a>
+                <a href="#features-section" class="btn btn-opacity-success ml-1">Pelajari Lanjut</a>
             </div>
             <img src="{{ asset('template-frontend') }}/images/Group171.svg" alt="" class="img-fluid">
         </div>
@@ -85,7 +84,7 @@
                             <img src="{{ asset('template-frontend') }}/images/Group12.svg" alt="" class="img-icons">
                             <h5 class="py-3">Platform<br>Stabil</h5>
                             <p class="text-muted">Website dan Aplikasi yang sudah teruji, memiliki kecepatan yang handal.</p>
-                            <a href="#"><p class="readmore-link">Selengkapnya..</p></a>  
+                            <a href=""><p class="readmore-link">Selengkapnya..</p></a>  
                         </div>
                     </div>
                     <div class="grid-margin d-flex justify-content-center">
@@ -93,7 +92,7 @@
                             <img src="{{ asset('template-frontend') }}/images/Group7.svg" alt="" class="img-icons">
                             <h5 class="py-3">Harga Buku<br>Terjangkau</h5>
                             <p class="text-muted">Selain banyak macam buku, juga memiliki harga yang cukup terjangkau relatif murah.</p>
-                            <a href="#"><p class="readmore-link">Selengkaonya..</p></a>
+                            <a href=""><p class="readmore-link">Selengkaonya..</p></a>
                         </div>
                     </div>
                     <div class="grid-margin d-flex justify-content-end">
@@ -101,7 +100,7 @@
                             <img src="{{ asset('template-frontend') }}/images/Group5.svg" alt="" class="img-icons">
                             <h5 class="py-3">Transaksi<br>Mudah</h5>
                             <p class="text-muted">Berbagai macam metode pembayaran yang disediakan meliputi bank transfer indonesia.</p>
-                            <a href="#"><p class="readmore-link">Selengkapnya..</p></a>
+                            <a href=""><p class="readmore-link">Selengkapnya..</p></a>
                         </div>
                     </div>
                 </div>
@@ -111,8 +110,8 @@
                     <div class="col-12 col-lg-7 grid-margin grid-margin-lg-0" data-aos="fade-right">
                         <h3 class="m-0">Sukses dengan suka<br>Membaca buku!</h3>
                         <div class="col-lg-7 col-xl-6 p-0">
-                            <p class="py-4 m-0 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                            <p class="font-weight-medium text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer</p>
+                            <p class="py-4 m-0 text-muted">Buku adalah petualangan menarik di mana Anda menjelajahi kehidupan karakter yang kuat, alam yang menakjubkan, dan pemikiran brilian dari para pemikir terhebat.</p>
+                            <p class="font-weight-medium text-muted">Setiap halaman yang Anda baca membangun dasar pengetahuan yang kokoh, menjadi pondasi kesuksesan di masa depan.</p>
                         </div>    
                     </div>
                     <div class="col-12 col-lg-5 p-0 img-digital grid-margin grid-margin-lg-0" data-aos="fade-left">
@@ -126,8 +125,8 @@
                     <div class="col-12 col-lg-5 flex-item grid-margin" data-aos="fade-left">
                         <h3 class="m-0">Temukan solusi anda<br>di Platform Tuku Buku.</h3>
                         <div class="col-lg-9 col-xl-8 p-0">
-                            <p class="py-4 m-0 text-muted">Power-packed with impressive features and well-optimized, this template is designed to provide the best performance in all circumstances.</p>
-                            <p class="pb-2 font-weight-medium text-muted">Its smart features make it a powerful stand-alone website building tool.</p>
+                            <p class="py-4 m-0 text-muted">Platform Tuku Buku menyediakan akses ke beragam buku yang mencakup berbagai topik, mulai dari pendidikan, bisnis, kesehatan, hingga hobi dan kesenangan.</p>
+                            <p class="pb-2 font-weight-medium text-muted">Jelajahi koleksi buku yang tersedia dan temukan jawaban, wawasan baru, serta solusi praktis yang akan membantu Anda mencapai tujuan yang diinginkan.</p>
                         </div>
                         <button class="btn btn-info">Selengkapnya..</button>
                     </div>
@@ -239,7 +238,7 @@
                                     <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                                     <div class="content-divider m-auto"></div>
                                     <h6 class="card-title pt-3">Tony Martinez</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
+                                    <h6 class="customer-designation text-muted m-0">Founder</h6>
                                 </div>
                             </div>
                         </div>
@@ -250,7 +249,7 @@
                                     <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                                     <div class="content-divider m-auto"></div>
                                     <h6 class="card-title pt-3">Sophia Armstrong</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
+                                    <h6 class="customer-designation text-muted m-0">CEO</h6>
                                 </div>
                             </div>
                         </div>
@@ -261,7 +260,7 @@
                                     <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                                     <div class="content-divider m-auto"></div>
                                     <h6 class="card-title pt-3">Cody Lambert</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
+                                    <h6 class="customer-designation text-muted m-0">Senior Search Engine</h6>
                                 </div>
                             </div>
                         </div>
@@ -272,7 +271,7 @@
                                     <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                                     <div class="content-divider m-auto"></div>
                                     <h6 class="card-title pt-3">Cody Lambert</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
+                                    <h6 class="customer-designation text-muted m-0">Tata Kelola IT</h6>
                                 </div>
                             </div>
                         </div>
@@ -283,7 +282,7 @@
                                     <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                                     <div class="content-divider m-auto"></div>
                                     <h6 class="card-title pt-3">Cody Lambert</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
+                                    <h6 class="customer-designation text-muted m-0">Senior Mobile Developer</h6>
                                 </div>
                             </div>
                         </div>
@@ -294,7 +293,7 @@
                                     <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                                     <div class="content-divider m-auto"></div>
                                     <h6 class="card-title pt-3">Tony Martinez</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
+                                    <h6 class="customer-designation text-muted m-0">Senior Web Developer</h6>
                                 </div>
                             </div>
                         </div>
@@ -305,7 +304,7 @@
                                     <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                                     <div class="content-divider m-auto"></div>
                                     <h6 class="card-title pt-3">Tony Martinez</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
+                                    <h6 class="customer-designation text-muted m-0">Senior DevOps</h6>
                                 </div>
                             </div>
                         </div>
@@ -316,7 +315,7 @@
                                     <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                                     <div class="content-divider m-auto"></div>
                                     <h6 class="card-title pt-3">Sophia Armstrong</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
+                                    <h6 class="customer-designation text-muted m-0">Projek Manager</h6>
                                 </div>
                             </div>
                         </div>
@@ -350,30 +349,30 @@
                     <div class="col-12 col-md-6 col-lg-3 grid-margin">
                         <img src="{{ asset('template-frontend') }}/images/Group2.svg" alt="" class="pb-2">
                         <div class="pt-2">
-                            <p class="text-muted m-0">mikayla_beer@feil.name</p>
-                            <p class="text-muted m-0">906-179-8309</p>
+                            <p class="text-muted m-0">admin@tukubuku.id</p>
+                            <p class="text-muted m-0">+62 821-4673-9875</p>
                         </div>         
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 grid-margin">
-                        <h5 class="pb-2">Get in Touch</h5>
-                        <p class="text-muted">Don’t miss any updates of our new templates and extensions.!</p>
+                        <h5 class="pb-2">Hubungi</h5>
+                        <p class="text-muted">Jangan lewatkan pembaruan apa pun pada templat dan ekstensi baru kami.!</p>
                         <form>
-                            <input type="text" class="form-control" id="Email" placeholder="Email id">
+                            <input type="text" class="form-control" id="Email" placeholder="Email">
                         </form>
                         <div class="pt-3">
                             <button class="btn btn-dark">Subscribe</button>
                         </div>   
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 grid-margin">
-                        <h5 class="pb-2">Our Guidelines</h5>
+                        <h5 class="pb-2">Pedoman</h5>
                         <a href="#"><p class="m-0 pb-2">Terms</p></a>   
                         <a href="#" ><p class="m-0 pt-1 pb-2">Privacy policy</p></a> 
                         <a href="#"><p class="m-0 pt-1 pb-2">Cookie Policy</p></a> 
                         <a href="#"><p class="m-0 pt-1">Discover</p></a> 
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 grid-margin">
-                        <h5 class="pb-2">Our address</h5>
-                        <p class="text-muted">518 Schmeler Neck<br>Bartlett. Illinois</p>
+                        <h5 class="pb-2">Alamat</h5>
+                        <p class="text-muted">SMKN Mastrip<br>Polije. Istimewa</p>
                         <div class="d-flex justify-content-center justify-content-md-start">
                             <a href="#"><span class="mdi mdi-facebook"></span></a>
                             <a href="#"><span class="mdi mdi-twitter"></span></a>
@@ -384,38 +383,10 @@
                 </div>  
             </section>
             <footer class="border-top">
-                <p class="text-center text-muted pt-4">Copyright © 2019<a href="https://www.bootstrapdash.com/" class="px-1">Bootstrapdash.</a>All rights reserved.</p>
+                <p class="text-center text-muted pt-4">Copyright © 2023<a href="" class="px-1">Bootstrapdash.</a>All rights reserved.</p>
             </footer>
             <!-- Modal for Contact - us Button -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel">Contact Us</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="Name">Name</label>
-                                    <input type="text" class="form-control" id="Name" placeholder="Name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Email">Email</label>
-                                    <input type="email" class="form-control" id="Email-1" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Message">Message</label>
-                                    <textarea class="form-control" id="Message" placeholder="Enter your Message"></textarea>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-success">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div> 
     </div>
     <script src="{{ asset('template-frontend') }}/vendors/jquery/jquery.min.js"></script>
