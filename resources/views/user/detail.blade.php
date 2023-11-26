@@ -10,7 +10,7 @@
                 <h4 class="page-title">Forms</h4>
                 <ul class="breadcrumbs">
                     <li class="nav-home">
-                        <a href="{{ route('dashboard') }}">
+                        <a href="{{ route('user') }}">
                             <i class="flaticon-home"></i>
                         </a>
                     </li>
@@ -24,7 +24,7 @@
                         <i class="flaticon-right-arrow"></i>
                     </li>
                     <li class="nav-item">
-                        <a href="#">{{ $data->name }}</a>
+                        <a href="">{{ $data->name }}</a>
                     </li>
                 </ul>
             </div>

@@ -51,7 +51,23 @@
                             <p>Manajemen User</p>
                         </a>
                     </li>
+
+                    <li class="nav-item {{ request()->is('manajemen-faq', 'manajemen-faq/*') ? 'active' : ''}}">
+                        <a href="{{ route('manajemen-faq.index') }}">
+                            <i class="fa fa-question-circle"></i>
+                            <p>FAQ</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{ request()->is('manajemen-about', 'manajemen-about/*') ? 'active' : ''}}">
+                        <a href="{{ route('manajemen-about.index') }}">
+                            <i class="fa fa-info-circle"></i>
+                            <p>About</p>
+                        </a>
+                    </li>
+
                 @else
+
                     <li class="nav-item {{ request()->is('user') ? 'active' : ''}}">
                         <a href="{{ route('user') }}">
                             <i class="fas fa-home"></i>
@@ -63,6 +79,20 @@
                         <a href="{{ route('histori-pesanan') }}">
                             <i class="fa fa-cart-plus"></i>
                             <p>Pesanan Saya</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{ request()->is('faq', 'faq/*') ? 'active' : ''}}">
+                        <a href="{{ route('faq') }}">
+                            <i class="fa fa-question-circle"></i>
+                            <p>FAQ</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{ request()->is('about', 'about/*') ? 'active' : ''}}">
+                        <a href="{{ route('about') }}">
+                            <i class="fa fa-info-circle"></i>
+                            <p>About</p>
                         </a>
                     </li>
                 @endif
