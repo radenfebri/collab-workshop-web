@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="col col-stats ml-3 ml-sm-0">
                                     <div class="numbers">
-                                        <p class="card-category">Total Harga Buku</p>
+                                        <p class="card-category">Total Pembelian</p>
                                         <h4 class="card-title">RP. {{ number_format($total_beli) }}</h4>
                                     </div>
                                 </div>

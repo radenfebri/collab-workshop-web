@@ -65,12 +65,12 @@
                                 <div class="row align-items-center">
                                     <div class="col-icon">
                                         <div class="icon-big text-center icon-success bubble-shadow-small">
-                                            <i class="fas fa-money-bill"></i>
+                                            <i class="fas fa-check"></i>
                                         </div>
                                     </div>
                                     <div class="col col-stats ml-3 ml-sm-0">
                                         <div class="numbers">
-                                            <p class="card-category">Transaksi Sukses</p>
+                                            <p class="card-category">Transaksi Selesai</p>
                                             <h4 class="card-title">{{ $trx_success->count() }}</h4>
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@
                                     </div>
                                     <div class="col col-stats ml-3 ml-sm-0">
                                         <div class="numbers">
-                                            <p class="card-category">Transaksi Pending</p>
+                                            <p class="card-category">Transaksi Diproses</p>
                                             <h4 class="card-title">{{ $trx_pending->count() }}</h4>
                                         </div>
                                     </div>
@@ -106,7 +106,7 @@
                             <div class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-secondary bubble-shadow-small">
-                                        <i class="fas fa-newspaper"></i>
+                                        <i class="fas fa-money-bill"></i>
                                         
                                     </div>
                                 </div>
@@ -148,7 +148,7 @@
                             <div class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-danger bubble-shadow-small">
-                                        <i class="fas fa-database"></i>
+                                        <i class="fas fa-minus-square"></i>
                                     </div>
                                 </div>
                                 <div class="col col-stats ml-3 ml-sm-0">
@@ -169,12 +169,12 @@
                                 <div class="row align-items-center">
                                     <div class="col-icon">
                                         <div class="icon-big text-center icon-success bubble-shadow-small">
-                                            <i class="fas fa-user"></i>
+                                            <i class="fas fa-users"></i>
                                         </div>
                                     </div>
                                     <div class="col col-stats ml-3 ml-sm-0">
                                         <div class="numbers">
-                                            <p class="card-category">Total User</p>
+                                            <p class="card-category">Total Akun</p>
                                             <h4 class="card-title">{{ $total_user }}</h4>
                                         </div>
                                     </div>
@@ -190,7 +190,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-icon">
                                         <div class="icon-big text-center icon-info bubble-shadow-small">
-                                            <i class="fas fa-wifi"></i>
+                                            <i class="fas fa-user"></i>
                                         </div>
                                     </div>
                                     <div class="col col-stats ml-3 ml-sm-0">
