@@ -31,7 +31,7 @@ class DashboardController extends Controller
         $total_beli = Order::where('status', 1)->sum('total_price');
 
 
-        return view('backend.dashboard', compact('total_admin','user', 'buku_habis', 'buku', 'data', 'total_beli', 'trx_success', 'trx_pending', 'total_user', 'bank'));
+        return view('backend.dashboard', compact('total_admin', 'user', 'buku_habis', 'buku', 'data', 'total_beli', 'trx_success', 'trx_pending', 'total_user', 'bank'));
     }
 
 
@@ -39,5 +39,37 @@ class DashboardController extends Controller
     {
         $data = Buku::where('qty', '<=', 5)->get();
         return view('backend.buku.stok-buku', compact('data'));
+    }
+
+
+    public function admin()
+    {
+        $data = User::where('role', 'Admin')->get();
+
+        return view('backend.manajemen-user.admin', compact('data'));
+    }
+
+
+    public function user()
+    {
+        $data = User::where('role', 'User')->get();
+
+        return view('backend.manajemen-user.user', compact('data'));
+    }
+
+
+    public function selesai()
+    {
+        $data = Order::where('status', 1)->get();
+
+        return view('backend.pesanan.selesai', compact('data'));
+    }
+
+
+    public function proses()
+    {
+        $data = Order::where('status', 0)->get();
+
+        return view('backend.pesanan.selesai', compact('data'));
     }
 }

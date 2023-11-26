@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Pesanan Masuk')
+@section('title', 'Manajemen User')
 
 @section('content')
 <div class="main-panel">
@@ -10,7 +10,7 @@
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
                         <h2 class="text-white pb-2 fw-bold">@yield('title')</h2>
-                        <h5 class="text-white op-7 mb-2">Total Pesanan : {{ $data->count() }}</h5>
+                        <h5 class="text-white op-7 mb-2">Total User : {{ $data->count() }}</h5>
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">
                     </div>
@@ -30,14 +30,17 @@
                                             <span class="fw-mediumbold">
                                                 New</span>
                                                 <span class="fw-light">
-                                                    Buku
+                                                    Metode Bayar
                                                 </span>
                                             </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        
+                                        <div class="modal-body">
+                                            <!-- <p class="small">Create a new row using this form, make sure you fill them all</p> -->
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -47,24 +50,20 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Buku</th>
-                                            <th>Nama Pembeli</th>
-                                            <th>Harga Buku</th>
-                                            <th>Metode</th>
-                                            <th>Kode Pesanan</th>
-                                            <th>Status</th>
+                                            <th>Nama</th>
+                                            <th>Email</th>
+                                            <th>Username</th>
+                                            <th>Role</th>
                                             <th style="width: 10%">Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Buku</th>
-                                            <th>Nama Pembeli</th>
-                                            <th>Harga Buku</th>
-                                            <th>Metode</th>
-                                            <th>Kode Pesanan</th>
-                                            <th>Status</th>
+                                            <th>Nama</th>
+                                            <th>Email</th>
+                                            <th>Username</th>
+                                            <th>Role</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
@@ -72,29 +71,26 @@
                                         @foreach ($data as $no => $item)
                                         <tr>
                                             <td>{{ $no + 1 }} </td>
-                                            <td>{{ $item->buku->name }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ number_format($item->total_price) }}</td>
-                                            <td>{{ $item->bank->nama_bank }}</td>
-                                            <td>{{ $item->tracking_no }} </td>
+                                            <td>{{ $item->name }} </td>
+                                            <td>{{ $item->email }} </td>
+                                            <td>{{ $item->username }} </td>
+                                            <td>{{ $item->role }} </td>
                                             <td>
-                                                @if ($item->status == 1)
-                                                    <span style="color: green">Berhasil</span>
+                                                @if ($item->id == Auth::id())
+                                                    
                                                 @else
-                                                    <span style="color: red">Proses</span>
-                                                @endif
-                                            </td>
-                                            <td>
                                                 <div class="form-button-action">
-                                                    <a href="{{ route('pesanan.edit', encrypt($item->id)) }}" type="button" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Prose Pesanan">
-                                                        <i class="fa fa-recycle"></i>
+                                                    <a href="{{ route('manajemen-user.edit', encrypt($item->id)) }}" type="button" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Edit User">
+                                                        <i class="fa fa-edit"></i>
                                                     </a>
                                                     
-                                                    <a href="{{ route('pesanan.show', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Pesanan"
-                                                        onclick="return confirm('Apakah anda yakin batalkan pesanan {{ $item->name }} ?')">
-                                                        <i class="fa fa-times"></i>
-                                                    </a>
+                                                    <form action="{{ route('manajemen-user.destroy', encrypt($item->id)) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-link btn-danger btn-lg" onclick="return confirm('Apakah anda yakin menghapus user {{ $item->name }} ?')"><i class="fa fa-times"></i></button>
+                                                    </form>
                                                 </div>
+                                                @endif
                                             </td>
                                         </tr>
                                         @endforeach
