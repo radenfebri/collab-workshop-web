@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\Buku\BukuController;
 use App\Http\Controllers\Api\Buku\KategoriBukuController;
+use App\Http\Controllers\Api\Buku\SearchBukuController;
 use App\Http\Controllers\Api\Order\MetodeController;
 use App\Http\Controllers\Api\Order\OrderController;
 use Illuminate\Support\Facades\Route;
@@ -33,5 +34,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     // API METODE BAYAR
     Route::get('metode-bayar', [MetodeController::class, 'show']);
     Route::get('metode-bayar/{id}', [MetodeController::class, 'getid']);
-});
 
+    // API SEARCH BUKU
+    Route::get('buku/search/{keyword}', [BukuController::class, 'search']);
+});
