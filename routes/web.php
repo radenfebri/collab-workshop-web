@@ -27,6 +27,7 @@ Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 
 Route::middleware(['cekLogin', 'cekRole:Admin'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('buku/stok-habis', [DashboardController::class, 'stok'])->name('stok');
     Route::resource('kategori-buku', KategoriBukuController::class);
     Route::resource('buku', BukuController::class);
     Route::resource('pesanan', PesananController::class);

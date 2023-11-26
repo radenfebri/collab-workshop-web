@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\Buku\KategoriBukuController;
 use App\Http\Controllers\Api\Buku\SearchBukuController;
 use App\Http\Controllers\Api\Order\MetodeController;
 use App\Http\Controllers\Api\Order\OrderController;
+use App\Http\Controllers\Api\Setting\AboutController;
+use App\Http\Controllers\Api\Setting\FaqController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,6 +27,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     // API BUKU
     Route::get('buku', [BukuController::class, 'show']);
     Route::get('buku/{id}', [BukuController::class, 'getid']);
+    Route::get('buku/search/{keyword}', [BukuController::class, 'search']);
 
     // API PESANAN
     Route::post('checkout', [OrderController::class, 'checkout']);
@@ -35,6 +38,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('metode-bayar', [MetodeController::class, 'show']);
     Route::get('metode-bayar/{id}', [MetodeController::class, 'getid']);
 
-    // API SEARCH BUKU
-    Route::get('buku/search/{keyword}', [BukuController::class, 'search']);
+    // API SETTING WEBSITE
+    Route::get('about', [AboutController::class, 'show']);
+    Route::get('faq', [FaqController::class, 'show']);
 });

@@ -143,24 +143,26 @@
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-3">
-                    <div class="card card-stats card-round">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-icon">
-                                    <div class="icon-big text-center icon-danger bubble-shadow-small">
-                                        <i class="fas fa-minus-square"></i>
+                    <a href="{{ route('stok') }}" style="text-decoration:none" >
+                        <div class="card card-stats card-round">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-icon">
+                                        <div class="icon-big text-center icon-danger bubble-shadow-small">
+                                            <i class="fas fa-minus-square"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col col-stats ml-3 ml-sm-0">
-                                    <div class="numbers">
-                                        <p class="card-category">Stok Buku Hampir Habis</p>
-                                        <h4 class="card-title">{{ $buku_habis->count() }}</h4>
-                                        
+                                    <div class="col col-stats ml-3 ml-sm-0">
+                                        <div class="numbers">
+                                            <p class="card-category">Stok Buku Hampir Habis</p>
+                                            <h4 class="card-title">{{ $buku_habis->count() }}</h4>
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-sm-6 col-md-3">
                     <a href="{{ route('manajemen-user.index') }}" style="text-decoration:none" >

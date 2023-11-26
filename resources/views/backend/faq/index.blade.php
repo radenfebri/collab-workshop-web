@@ -67,7 +67,7 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group form-group-default">
                                                             <label>Jawaban<span style="color: red">*</span></label>
-                                                            <textarea name="jawaban" type="text" class="form-control @error ('jawaban') is-invalid @enderror"  placeholder="Nama Kategori" >{{ old('jawaban') }}</textarea>
+                                                            <textarea name="jawaban" type="text" class="form-control @error ('jawaban') is-invalid @enderror"  placeholder="Jawaban" >{{ old('jawaban') }}</textarea>
                                                             @error('jawaban')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
