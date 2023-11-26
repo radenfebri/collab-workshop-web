@@ -40,6 +40,7 @@ class UserController extends Controller
         return redirect()->route('manajemen-user.index');
     }
 
+    
     public function destroy($id){
         User::destroy(decrypt($id));
         Alert::success('Berhasil', 'Data berhasil dihapus');

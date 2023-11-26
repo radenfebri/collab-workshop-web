@@ -33,4 +33,11 @@ class DashboardController extends Controller
 
         return view('backend.dashboard', compact('total_admin','user', 'buku_habis', 'buku', 'data', 'total_beli', 'trx_success', 'trx_pending', 'total_user', 'bank'));
     }
+
+
+    public function stok()
+    {
+        $data = Buku::where('qty', '<=', 5)->get();
+        return view('backend.buku.stok-buku', compact('data'));
+    }
 }
