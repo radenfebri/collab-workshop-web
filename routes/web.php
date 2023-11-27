@@ -39,6 +39,7 @@ Route::middleware(['cekLogin', 'cekRole:Admin'])->group(function () {
     // Route::get('pesanan/export-excel', [ExportLaporanController::class, 'exportExcel'])->name('exportExcel');
     // Route::get('pesanan/export-excel-pending', [ExportLaporanController::class, 'exportExcelPending'])->name('exportExcelPend');
     // Route::get('pesanan/export-excel-pending', [ExportLaporanController::class, 'exportExcelPending'])->name('exportExcelPend');
+
     Route::resource('kategori-buku', KategoriBukuController::class);
     Route::resource('buku', BukuController::class);
     Route::resource('pesanan', PesananController::class);

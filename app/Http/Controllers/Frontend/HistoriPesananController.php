@@ -38,6 +38,7 @@ class HistoriPesananController extends Controller
         Alert::success('Berhasil', 'Data Berhasil tidak diproses');
         return back();
     }
+<<<<<<< HEAD
 
 
     public function sukses()
@@ -58,4 +59,6 @@ class HistoriPesananController extends Controller
 
         return view('user.buku-pending', compact('data','user'));
     }
+=======
+>>>>>>> 771ece0b631a7d09ea2fc535ec297112a71d0fb7
 }
