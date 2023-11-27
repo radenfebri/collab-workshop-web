@@ -43,6 +43,21 @@
                             </div>
                             
                             <div class="table-responsive">
+                                <div class="mb-3">
+                                    <div class="ml-md-auto py-2 py-md-0">
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="exportDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-file-pdf"></i> Export Laporan PDF
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="exportDropdown">
+                                                <a class="dropdown-item" href="{{ route('exportPDF') }}" target="_blank">Export Laporan All</a>
+                                                <a class="dropdown-item" href="{{ route('exportPDFSuc') }}" target="_blank">Export Laporan Success</a>
+                                                <a class="dropdown-item" href="{{ route('exportPDFPend') }}" target="_blank">Export Laporan Pending</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <table id="add-row" class="display table table-striped table-hover" >
                                     <thead>
                                         <tr>

@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\BukuController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\ExportLaporanController;
 use App\Http\Controllers\Backend\FaqController;
 use App\Http\Controllers\Backend\KategoriBukuController;
 use App\Http\Controllers\Backend\MetodeController;
@@ -32,6 +33,12 @@ Route::middleware(['cekLogin', 'cekRole:Admin'])->group(function () {
     Route::get('manajemen-user/admin', [DashboardController::class, 'admin'])->name('total-admin');
     Route::get('pesanan/selesai', [DashboardController::class, 'selesai'])->name('trx-selesai');
     Route::get('pesanan/diproses', [DashboardController::class, 'proses'])->name('trx-proses');
+    Route::get('pesanan/export-pdf', [ExportLaporanController::class, 'exportPDF'])->name('exportPDF');
+    Route::get('pesanan/export-pdf-succes', [ExportLaporanController::class, 'exportPDFSucces'])->name('exportPDFSuc');
+    Route::get('pesanan/export-pdf-pending', [ExportLaporanController::class, 'exportPDFPending'])->name('exportPDFPend');
+    // Route::get('pesanan/export-excel', [ExportLaporanController::class, 'exportExcel'])->name('exportExcel');
+    // Route::get('pesanan/export-excel-pending', [ExportLaporanController::class, 'exportExcelPending'])->name('exportExcelPend');
+    // Route::get('pesanan/export-excel-pending', [ExportLaporanController::class, 'exportExcelPending'])->name('exportExcelPend');
     Route::resource('kategori-buku', KategoriBukuController::class);
     Route::resource('buku', BukuController::class);
     Route::resource('pesanan', PesananController::class);
@@ -51,4 +58,3 @@ Route::middleware(['cekLogin', 'cekRole:User'])->group(function () {
     Route::get('histori-pesanan/{id}', [HistoriPesananController::class, 'show'])->name('show.histori-pesanan');
     Route::get('histori-pesanan/{id}/destroy', [HistoriPesananController::class, 'destroy'])->name('destroy.histori-pesanan');
 });
-

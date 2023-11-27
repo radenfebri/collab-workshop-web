@@ -41,6 +41,14 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="table-responsive mb-3">
+                                <div class="ml-md-auto py-2 py-md-0">
+                                    <a href="{{ route('exportPDFSuc') }}" class="btn btn-sm btn-success" target="_blank">
+                                        <i class="fa fa-file-pdf"></i> Export Laporan Succes
+                                    </a>
+                                </div>
+                            </div>
                             
                             <div class="table-responsive">
                                 <table id="add-row" class="display table table-striped table-hover" >
