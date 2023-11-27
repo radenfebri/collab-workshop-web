@@ -41,7 +41,6 @@
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
 
                             <div class="table-responsive mb-3">
                                 <div class="ml-md-auto py-2 py-md-0">
@@ -50,8 +49,6 @@
                                     </a>
                                 </div>
                             </div>
-=======
->>>>>>> 771ece0b631a7d09ea2fc535ec297112a71d0fb7
                             
                             <div class="table-responsive">
                                 <table id="add-row" class="display table table-striped table-hover" >
