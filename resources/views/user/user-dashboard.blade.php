@@ -59,7 +59,7 @@
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-3">
-                    <a href="{{ route('histori-pesanan') }}" style="text-decoration:none" >
+                    <a href="{{ route('histori-pesanan-sukses') }}" style="text-decoration:none" >
                         <div class="card card-stats card-round">
                             <div class="card-body">
                                 <div class="row align-items-center">
@@ -71,7 +71,7 @@
                                     <div class="col col-stats ml-3 ml-sm-0">
                                         <div class="numbers">
                                             <p class="card-category">Transaksi Sukses</p>
-                                            <h4 class="card-title">{{ $bukusaya->count() }}</h4>
+                                            <h4 class="card-title">{{ $bukusayasukses->count() }}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-3">
-                    <a href="{{ route('histori-pesanan') }}" style="text-decoration:none" >
+                    <a href="{{ route('histori-pesanan-pending') }}" style="text-decoration:none" >
                         <div class="card card-stats card-round">
                             <div class="card-body">
                                 <div class="row align-items-center">
@@ -121,88 +121,6 @@
                     </div>
                 </div>
                 
-                {{-- <div class="col-sm-6 col-md-3">
-                    <div class="card card-stats card-round">
-                        <div class="card-body ">
-                            <div class="row align-items-center">
-                                <div class="col-icon">
-                                    <div class="icon-big text-center icon-warning bubble-shadow-small">
-                                        <i class="fas fa-info"></i>
-                                    </div>
-                                </div>
-                                <div class="col col-stats ml-3 ml-sm-0">
-                                    <div class="numbers">
-                                        <p class="card-category">Info</p>
-                                        <b> Model :</b> # / #<br>
-                                        <b> OS : #</b>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="card card-stats card-round">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-icon">
-                                    <div class="icon-big text-center icon-danger bubble-shadow-small">
-                                        <i class="fas fa-database"></i>
-                                    </div>
-                                </div>
-                                <div class="col col-stats ml-3 ml-sm-0">
-                                    <div class="numbers">
-                                        <p class="card-category">Total Memory/Total Hdd</p>
-                                        <h4 class="card-title"># / #</h4>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <a href="#" style="text-decoration:none" >
-                        <div class="card card-stats card-round">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-icon">
-                                        <div class="icon-big text-center icon-muted bubble-shadow-small">
-                                            <i class="fas fa-user-alt"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col col-stats ml-3 ml-sm-0">
-                                        <div class="numbers">
-                                            <p class="card-category">PPPoE Active</p>
-                                            <h4 class="card-title">#</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <a href="" style="text-decoration:none" >
-                        <div class="card card-stats card-round">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-icon">
-                                        <div class="icon-big text-center icon-info bubble-shadow-small">
-                                            <i class="fas fa-wifi"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col col-stats ml-3 ml-sm-0">
-                                        <div class="numbers">
-                                            <p class="card-category">Total User Hotspot</p>
-                                            <h4 class="card-title">#</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div> --}}
             </div>
             
             <div class="row">

@@ -46,12 +46,9 @@ Route::middleware(['cekLogin', 'cekRole:User'])->group(function () {
     Route::get('faq', [FaqUserController::class, 'index'])->name('faq');
     Route::get('about', [AboutUserController::class, 'index'])->name('about');
     Route::get('histori-pesanan', [HistoriPesananController::class, 'index'])->name('histori-pesanan');
+    Route::get('histori-pesanan/sukses', [HistoriPesananController::class, 'sukses'])->name('histori-pesanan-sukses');
+    Route::get('histori-pesanan/pending', [HistoriPesananController::class, 'pending'])->name('histori-pesanan-pending');
     Route::get('histori-pesanan/{id}', [HistoriPesananController::class, 'show'])->name('show.histori-pesanan');
     Route::get('histori-pesanan/{id}/destroy', [HistoriPesananController::class, 'destroy'])->name('destroy.histori-pesanan');
 });
 
-
-
-// Route::get('foo', function () {
-//     return "hello world";
-// });
