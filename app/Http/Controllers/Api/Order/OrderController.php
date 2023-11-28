@@ -16,7 +16,7 @@ class OrderController extends Controller
     {
         try {
             $user_id = Auth::id();
-            $pesanan = Order::where('user_id', $user_id)->with('buku', 'bank')->get();
+            $pesanan = Order::where('user_id', $user_id)->latest()->with('buku', 'bank')->get();
 
             $detailpesanan = $pesanan->map(function ($item) {
                 return [
