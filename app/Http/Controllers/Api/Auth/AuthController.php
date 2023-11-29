@@ -3,14 +3,20 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendPasswordResetEmail;
 use App\Models\User;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    use DispatchesJobs;
+
+
     // LOGIN
     public function login(Request $request)
     {
@@ -156,6 +162,45 @@ class AuthController extends Controller
             return response()->json([
                 'status' => false,
                 'message' => $th->getMessage(),
+            ], 500);
+        }
+    }
+
+
+
+    public function resetPassword(Request $request)
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'email' => 'required|email',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Validation Error',
+                    'errors' => $validator->errors(),
+                ], 400);
+            }
+
+            $email = $request->input('email');
+            $token = Str::random(60);
+
+            $user = (object) [
+                'email' => $email,
+                'token' => $token,
+            ];
+
+            $this->dispatch(new SendPasswordResetEmail($user));
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Reset Password Email Sent',
+            ], 200);
+        } catch (\Exception $exception) {
+            return response()->json([
+                'status' => false,
+                'message' => $exception->getMessage(),
             ], 500);
         }
     }

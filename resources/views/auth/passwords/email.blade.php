@@ -16,8 +16,8 @@
     <div class="row">
         <div class="col-md-12 mb-3">
             
-            <h2>Password Reset</h2>
-            <p>Enter your email to recover your ID</p>
+            <h2>Reset Password</h2>
+            <p>Masukkan Email yang sudah terdaftar</p>
             
         </div>
         <div class="col-md-12">
@@ -33,7 +33,7 @@
         </div>
         <div class="col-12">
             <div class="mb-4">
-                <button class="btn btn-primary w-100">SEND PASSWORD RESET LINK</button>
+                <button class="btn btn-primary w-100">KIRIM LINK RESET PASSWORD</button>
             </div>
         </div>
         

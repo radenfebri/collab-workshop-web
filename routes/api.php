@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 // AUTH 
 Route::post('auth/register', [AuthController::class, 'register']);
 Route::post('auth/login', [AuthController::class, 'login']);
+Route::post('auth/reset-password', [AuthController::class, 'resetPassword']);
 Route::middleware(['auth:sanctum'])->group(function () {
     // API GET DATA LOGIN
     Route::get('auth/show', [AuthController::class, 'show']);

@@ -2,6 +2,8 @@
 
 namespace Illuminate\Foundation\Auth;
 
+use App\Jobs\SendPasswordResetEmail;
+use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -29,16 +31,13 @@ trait SendsPasswordResetEmails
     {
         $this->validateEmail($request);
 
-        // We will send the password reset link to this user. Once we have attempted
-        // to send the link, we will examine the response then see the message we
-        // need to show to the user. Finally, we'll send out a proper response.
-        $response = $this->broker()->sendResetLink(
-            $this->credentials($request)
-        );
+        $user = User::where('email', $request->email)->first();
 
-        return $response == Password::RESET_LINK_SENT
-                    ? $this->sendResetLinkResponse($request, $response)
-                    : $this->sendResetLinkFailedResponse($request, $response);
+        if ($user) {
+            app(Dispatcher::class)->dispatch(new SendPasswordResetEmail($user));
+        }
+
+        return back()->with('status', 'Reset password link has been sent to your email!');
     }
 
     /**
@@ -73,8 +72,8 @@ trait SendsPasswordResetEmails
     protected function sendResetLinkResponse(Request $request, $response)
     {
         return $request->wantsJson()
-                    ? new JsonResponse(['message' => trans($response)], 200)
-                    : back()->with('status', trans($response));
+            ? new JsonResponse(['message' => trans($response)], 200)
+            : back()->with('status', trans($response));
     }
 
     /**
@@ -95,8 +94,8 @@ trait SendsPasswordResetEmails
         }
 
         return back()
-                ->withInput($request->only('email'))
-                ->withErrors(['email' => trans($response)]);
+            ->withInput($request->only('email'))
+            ->withErrors(['email' => trans($response)]);
     }
 
     /**
