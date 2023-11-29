@@ -42,7 +42,7 @@
                             <a class="nav-link" href="#digital-marketing-section">Blog</a>  
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#feedback-section">Testimonials</a>
+                            <a class="nav-link" href="#feedback-section">Developer</a>
                         </li>
                         <li class="nav-item btn-contact-us">
                             @if (Route::has('login'))
