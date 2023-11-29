@@ -48,7 +48,6 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Buku</th>
-                                            <th>Nama Pembeli</th>
                                             <th>Harga Buku</th>
                                             <th>Metode</th>
                                             <th>Kode Pesanan</th>
@@ -60,7 +59,6 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Buku</th>
-                                            <th>Nama Pembeli</th>
                                             <th>Harga Buku</th>
                                             <th>Metode</th>
                                             <th>Kode Pesanan</th>
@@ -73,7 +71,6 @@
                                         <tr>
                                             <td>{{ $no + 1 }} </td>
                                             <td>{{ $item->buku->name }}</td>
-                                            <td>{{ $item->name }}</td>
                                             <td>{{ number_format($item->total_price) }}</td>
                                             <td>{{ $item->bank->nama_bank }}</td>
                                             <td>{{ $item->tracking_no }} </td>

@@ -154,7 +154,7 @@
                                     </div>
                                     <div class="col col-stats ml-3 ml-sm-0">
                                         <div class="numbers">
-                                            <p class="card-category">Stok Buku Hampir Habis</p>
+                                            <p class="card-category">Stok Buku Habis</p>
                                             <h4 class="card-title">{{ $buku_habis->count() }}</h4>
                                             
                                         </div>
