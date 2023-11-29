@@ -340,7 +340,7 @@
                         <h4 class="pt-1" data-aos="fade-down">Hubungi kami</h4>
                     </div>
                     <div data-aos="fade-up">
-                        <button class="btn btn-rounded btn-outline-danger">Hubungi kami</button>
+                        <a href="https://wa.me/6289526716627" type="button" class="btn btn-rounded btn-outline-danger">Hubungi kami</a>
                     </div>          
                 </div>
             </section>
@@ -350,7 +350,7 @@
                         <img src="{{ asset('template-frontend') }}/images/Group2.svg" alt="" class="pb-2">
                         <div class="pt-2">
                             <p class="text-muted m-0">admin@tukubuku.id</p>
-                            <p class="text-muted m-0">+62 821-4673-9875</p>
+                            <p class="text-muted m-0">+62 895-2671-6627</p>
                         </div>         
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 grid-margin">
@@ -365,19 +365,19 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 grid-margin">
                         <h5 class="pb-2">Pedoman</h5>
-                        <a href="#"><p class="m-0 pb-2">Terms</p></a>   
-                        <a href="#" ><p class="m-0 pt-1 pb-2">Privacy policy</p></a> 
-                        <a href="#"><p class="m-0 pt-1 pb-2">Cookie Policy</p></a> 
-                        <a href="#"><p class="m-0 pt-1">Discover</p></a> 
+                        <a href=""><p class="m-0 pb-2">Terms</p></a>   
+                        <a href="" ><p class="m-0 pt-1 pb-2">Privacy policy</p></a> 
+                        <a href=""><p class="m-0 pt-1 pb-2">Cookie Policy</p></a> 
+                        <a href=""><p class="m-0 pt-1">Discover</p></a> 
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 grid-margin">
                         <h5 class="pb-2">Alamat</h5>
                         <p class="text-muted">SMKN Mastrip<br>Polije. Istimewa</p>
                         <div class="d-flex justify-content-center justify-content-md-start">
-                            <a href="#"><span class="mdi mdi-facebook"></span></a>
-                            <a href="#"><span class="mdi mdi-twitter"></span></a>
-                            <a href="#"><span class="mdi mdi-instagram"></span></a>
-                            <a href="#"><span class="mdi mdi-linkedin"></span></a>
+                            <a href="facebook.com"><span class="mdi mdi-facebook"></span></a>
+                            <a href="twitter.com"><span class="mdi mdi-twitter"></span></a>
+                            <a href="instagram.com"><span class="mdi mdi-instagram"></span></a>
+                            <a href="linkedin.com"><span class="mdi mdi-linkedin"></span></a>
                         </div>
                     </div>
                 </div>  
