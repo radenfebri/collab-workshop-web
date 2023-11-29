@@ -51,7 +51,7 @@ class OrderController extends Controller
             $buku = Buku::findOrFail($bukuId);
 
             if ($buku->qty > 0) {
-                $harga = $buku->original_price ?? $buku->selling_price;
+                $harga = $buku->selling_price ? $buku->selling_price : $buku->original_price;
                 $baseUrl = url('storage/');
 
                 $tracking_no = 'TB' . rand(111111, 999999);
