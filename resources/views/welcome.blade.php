@@ -340,7 +340,7 @@
                         <h4 class="pt-1" data-aos="fade-down">Hubungi kami</h4>
                     </div>
                     <div data-aos="fade-up">
-                        <a href="https://wa.me/6289526716627" type="button" class="btn btn-rounded btn-outline-danger">Hubungi kami</a>
+                        <a href="https://wa.me/6289526716627" type="button" target="_blank" class="btn btn-rounded btn-outline-danger">Hubungi kami</a>
                     </div>          
                 </div>
             </section>
@@ -374,10 +374,10 @@
                         <h5 class="pb-2">Alamat</h5>
                         <p class="text-muted">SMKN Mastrip<br>Polije. Istimewa</p>
                         <div class="d-flex justify-content-center justify-content-md-start">
-                            <a href="facebook.com"><span class="mdi mdi-facebook"></span></a>
-                            <a href="twitter.com"><span class="mdi mdi-twitter"></span></a>
-                            <a href="instagram.com"><span class="mdi mdi-instagram"></span></a>
-                            <a href="linkedin.com"><span class="mdi mdi-linkedin"></span></a>
+                            <a href="https://facebook.com" target="_blank"><span class="mdi mdi-facebook"></span></a>
+                            <a href="https://twitter.com" target="_blank"><span class="mdi mdi-twitter"></span></a>
+                            <a href="https://instagram.com" target="_blank"><span class="mdi mdi-instagram"></span></a>
+                            <a href="https://linkedin.com" target="_blank"><span class="mdi mdi-linkedin"></span></a>
                         </div>
                     </div>
                 </div>  
