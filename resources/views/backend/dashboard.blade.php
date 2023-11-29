@@ -101,25 +101,29 @@
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-3">
-                    <div class="card card-stats card-round">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-icon">
-                                    <div class="icon-big text-center icon-secondary bubble-shadow-small">
-                                        <i class="fas fa-money-bill"></i>
-                                        
+                    <a href="{{ route('trx-review') }}" style="text-decoration:none" >
+                        <div class="card card-stats card-round">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-icon">
+                                        <div class="icon-big text-center icon-info bubble-shadow-small">
+                                            <i class="fas fa-search"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col col-stats ml-3 ml-sm-0">
-                                    <div class="numbers">
-                                        <p class="card-category">Total Pemasukan</p>
-                                        <h4 class="card-title">RP. {{ number_format($total_beli) }}</h4>
+                                    <div class="col col-stats ml-3 ml-sm-0">
+                                        <div class="numbers">
+                                            <p class="card-category">Pesanan Direview</p>
+                                            <h4 class="card-title">{{ $trx_review->count() }}</h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
+
+
+                
                 
                 <div class="col-sm-6 col-md-3">
                     <a href="{{ route('metode-bayar.index') }}" style="text-decoration:none" >
@@ -165,6 +169,26 @@
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-3">
+                    <div class="card card-stats card-round">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-icon">
+                                    <div class="icon-big text-center icon-secondary bubble-shadow-small">
+                                        <i class="fas fa-money-bill"></i>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col col-stats ml-3 ml-sm-0">
+                                    <div class="numbers">
+                                        <p class="card-category">Total Pemasukan</p>
+                                        <h4 class="card-title">RP. {{ number_format($total_beli) }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
                     <a href="{{ route('total-user') }}" style="text-decoration:none" >
                         <div class="card card-stats card-round">
                             <div class="card-body">
@@ -185,27 +209,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-6 col-md-3">
-                    <a href="{{ route('total-admin') }}" style="text-decoration:none" >
-                        <div class="card card-stats card-round">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-icon">
-                                        <div class="icon-big text-center icon-info bubble-shadow-small">
-                                            <i class="fas fa-user"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col col-stats ml-3 ml-sm-0">
-                                        <div class="numbers">
-                                            <p class="card-category">Total Admin</p>
-                                            <h4 class="card-title">{{ $total_admin }}</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                
             </div>
             
             <div class="row">
@@ -213,7 +217,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="card-head-row">
-                                <div class="card-title">Pesanan diproses</div>
+                                <div class="card-title">Pesanan Diproses & Direview</div>
                             </div>
                         </div>
                         <div class="card-body">
@@ -242,15 +246,29 @@
                                                 <a href="{{ route('pesanan.index') }}" style="text-decoration:none">
                                                     @if ($item->status == 1)
                                                     <span style="color: green">Berhasil</span>
-                                                    @else
+                                                    @elseif ($item->status == 2)
+                                                    <span style="color: blue">Review</span>
+                                                    @elseif ($item->status == 0)
                                                     <span style="color: red">Proses</span>
                                                     @endif
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="{{ route('pesanan.edit', encrypt($item->id)) }}" type="button" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Prose Pesanan">
-                                                    <i class="fa fa-recycle"></i>
-                                                </a>
+                                                @if ($item->status == 1)
+                                                    
+                                                @elseif($item->status == 2)
+                                                    <a href="{{ route('pesanan.edit', encrypt($item->id)) }}" data-toggle="tooltip" class="btn btn-link btn-primary" data-original-title="Prose Pesanan">
+                                                        <i class="fa fa-recycle"></i>
+                                                    </a>
+                                                    <a href="{{ asset('storage/' . $item->bukti) }}" target="_blank" data-toggle="tooltip" class="btn btn-link btn-success" data-original-title="Lihat Bukti">
+                                                        <i class="fa fa-image"></i>
+                                                    </a>
+                                                @elseif ($item->status == 0)
+                                                    <a href="{{ route('pesanan.edit', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Prose Pesanan"
+                                                        onclick="return confirm('Anda yakin akan memproses pesanan #{{ $item->tracking_no }}? Belum ada bukti pembayaran!')">
+                                                        <i class="fa fa-recycle"></i>
+                                                    </a>
+                                                @endif
                                             </td>
                                         </tr>
                                         @endforeach

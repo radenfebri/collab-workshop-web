@@ -33,9 +33,11 @@ Route::middleware(['cekLogin', 'cekRole:Admin'])->group(function () {
     Route::get('manajemen-user/admin', [DashboardController::class, 'admin'])->name('total-admin');
     Route::get('pesanan/selesai', [DashboardController::class, 'selesai'])->name('trx-selesai');
     Route::get('pesanan/diproses', [DashboardController::class, 'proses'])->name('trx-proses');
+    Route::get('pesanan/review', [DashboardController::class, 'review'])->name('trx-review');
     Route::get('pesanan/export-pdf', [ExportLaporanController::class, 'exportPDF'])->name('exportPDF');
     Route::get('pesanan/export-pdf-succes', [ExportLaporanController::class, 'exportPDFSucces'])->name('exportPDFSuc');
     Route::get('pesanan/export-pdf-pending', [ExportLaporanController::class, 'exportPDFPending'])->name('exportPDFPend');
+    Route::get('pesanan/export-pdf-review', [ExportLaporanController::class, 'exportPDFReview'])->name('exportPDFRev');
 
     Route::resource('kategori-buku', KategoriBukuController::class);
     Route::resource('buku', BukuController::class);
@@ -51,6 +53,8 @@ Route::middleware(['cekLogin', 'cekRole:User'])->group(function () {
     Route::get('faq', [FaqUserController::class, 'index'])->name('faq');
     Route::get('about', [AboutUserController::class, 'index'])->name('about');
     Route::get('histori-pesanan', [HistoriPesananController::class, 'index'])->name('histori-pesanan');
+    Route::get('histori-pesanan/{id}/bukti', [HistoriPesananController::class, 'bukti'])->name('histori-pesanan-bukti');
+    Route::post('histori-pesanan/bukti/upload', [HistoriPesananController::class, 'upload'])->name('histori-pesanan-upload');
     Route::get('histori-pesanan/sukses', [HistoriPesananController::class, 'sukses'])->name('histori-pesanan-sukses');
     Route::get('histori-pesanan/pending', [HistoriPesananController::class, 'pending'])->name('histori-pesanan-pending');
     Route::get('histori-pesanan/{id}', [HistoriPesananController::class, 'show'])->name('show.histori-pesanan');

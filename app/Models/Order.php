@@ -13,7 +13,7 @@ class Order extends Model
 
     protected $fillable = [
         'user_id', 'buku_id', 'name', 'email', 'status',
-        'metode', 'tracking_no', 'total_price'
+        'metode', 'tracking_no', 'total_price', 'bukti',
     ];
 
     protected $hidden = [];

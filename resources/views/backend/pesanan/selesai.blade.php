@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Pesanan Masuk')
+@section('title', 'Transaksi Selesai')
 
 @section('content')
 <div class="main-panel">
@@ -61,7 +61,6 @@
                                             <th>Metode</th>
                                             <th>Kode Pesanan</th>
                                             <th>Status</th>
-                                            <th style="width: 10%">Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -73,7 +72,6 @@
                                             <th>Metode</th>
                                             <th>Kode Pesanan</th>
                                             <th>Status</th>
-                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -91,22 +89,6 @@
                                                 @else
                                                     <span style="color: red">Proses</span>
                                                 @endif
-                                            </td>
-                                            <td>
-                                                <div class="form-button-action">
-                                                    <a href="{{ route('pesanan.edit', encrypt($item->id)) }}" type="button" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Prose Pesanan">
-                                                        <i class="fa fa-recycle"></i>
-                                                    </a>
-                                                    
-                                                    @if ($item->status == 1)
-                                                        
-                                                    @else
-                                                    <a href="{{ route('pesanan.show', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Pesanan"
-                                                        onclick="return confirm('Apakah anda yakin batalkan pesanan {{ $item->name }} ?')">
-                                                        <i class="fa fa-times"></i>
-                                                    </a>
-                                                    @endif
-                                                </div>
                                             </td>
                                         </tr>
                                         @endforeach

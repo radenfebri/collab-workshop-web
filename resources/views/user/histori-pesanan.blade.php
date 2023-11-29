@@ -48,7 +48,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Buku</th>
-                                            <th>Harga Buku</th>
+                                            <th>Total Bayar</th>
                                             <th>Metode</th>
                                             <th>Kode Pesanan</th>
                                             <th>Status</th>
@@ -59,7 +59,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Buku</th>
-                                            <th>Harga Buku</th>
+                                            <th>Total Bayar</th>
                                             <th>Metode</th>
                                             <th>Kode Pesanan</th>
                                             <th>Status</th>
@@ -77,7 +77,9 @@
                                             <td>
                                                 @if ($item->status == 1)
                                                     <span style="color: green">Berhasil</span>
-                                                @else
+                                                @elseif($item->status == 2)
+                                                    <span style="color: blue">Review</span>
+                                                @elseif($item->status == 0)
                                                     <span style="color: red">Proses</span>
                                                 @endif
                                             </td>
@@ -89,11 +91,19 @@
                                                     
                                                     @if ($item->status == 1)
                                                         
-                                                    @else
-                                                    <a href="{{ route('destroy.histori-pesanan', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Buku"
-                                                        onclick="return confirm('Apakah anda yakin batalkan pesanan {{ $item->name }} ?')">
-                                                        <i class="fa fa-times"></i>
-                                                    </a>
+                                                    @elseif($item->status == 2)
+                                                        <a href="{{ route('histori-pesanan-bukti', encrypt($item->id)) }}" type="button" data-toggle="tooltip" class="btn btn-link btn-success btn-lg" data-original-title="Upload Bukti">
+                                                            <i class="fa fa-upload"></i>
+                                                        </a>
+                                                    @elseif($item->status == 0)
+                                                        <a href="{{ route('histori-pesanan-bukti', encrypt($item->id)) }}" type="button" data-toggle="tooltip" class="btn btn-link btn-success btn-lg" data-original-title="Upload Bukti">
+                                                            <i class="fa fa-upload"></i>
+                                                        </a>
+
+                                                        <a href="{{ route('destroy.histori-pesanan', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Buku"
+                                                            onclick="return confirm('Apakah anda yakin batalkan pesanan {{ $item->name }} ?')">
+                                                            <i class="fa fa-times"></i>
+                                                        </a>
                                                     @endif
                                                 </div>
                                             </td>

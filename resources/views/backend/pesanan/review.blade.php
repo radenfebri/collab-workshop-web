@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Pesanan Masuk')
+@section('title', 'Transaksi Direview')
 
 @section('content')
 <div class="main-panel">
@@ -41,23 +41,16 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="table-responsive">
-                                <div class="mb-3">
-                                    <div class="ml-md-auto py-2 py-md-0">
-                                        <div class="dropdown">
-                                            <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="exportDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fa fa-file-pdf"></i> Export Laporan PDF
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="exportDropdown">
-                                                <a class="dropdown-item" href="{{ route('exportPDF') }}" target="_blank">Export Laporan All</a>
-                                                <a class="dropdown-item" href="{{ route('exportPDFSuc') }}" target="_blank">Export Laporan Success</a>
-                                                <a class="dropdown-item" href="{{ route('exportPDFPend') }}" target="_blank">Export Laporan Pending</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
+                            <div class="table-responsive mb-3">
+                                <div class="ml-md-auto py-2 py-md-0">
+                                    <a href="{{ route('exportPDFRev') }}" class="btn btn-sm btn-primary" target="_blank">
+                                        <i class="fa fa-file-pdf"></i> Export Laporan Review
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
                                 <table id="add-row" class="display table table-striped table-hover" >
                                     <thead>
                                         <tr>
@@ -103,33 +96,12 @@
                                             </td>
                                             <td>
                                                 <div class="form-button-action">
-
-                                                    @if ($item->status == 1)
-                                                    
-                                                    @elseif($item->status == 2)
-                                                        <a href="{{ route('pesanan.edit', encrypt($item->id)) }}" data-toggle="tooltip" class="btn btn-link btn-primary" data-original-title="Prose Pesanan">
-                                                            <i class="fa fa-recycle"></i>
-                                                        </a>
-                        
-                                                        <a href="{{ route('pesanan.show', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Pesanan"
-                                                            onclick="return confirm('Apakah anda yakin batalkan pesanan {{ $item->name }} ?')">
-                                                            <i class="fa fa-times"></i>
-                                                        </a>
-
-                                                        <a href="{{ asset('storage/' . $item->bukti) }}" target="_blank" data-toggle="tooltip" class="btn btn-link btn-success" data-original-title="Lihat Bukti">
-                                                            <i class="fa fa-image"></i>
-                                                        </a>
-                                                    @elseif ($item->status == 0)
-                                                        <a href="{{ route('pesanan.edit', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Prose Pesanan"
-                                                            onclick="return confirm('Anda yakin akan memproses pesanan #{{ $item->tracking_no }}? Belum ada bukti pembayaran!')">
-                                                            <i class="fa fa-recycle"></i>
-                                                        </a>
-                                                        <a href="{{ route('pesanan.show', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Pesanan"
-                                                            onclick="return confirm('Apakah anda yakin batalkan pesanan {{ $item->name }} ?')">
-                                                            <i class="fa fa-times"></i>
-                                                        </a>
-                                                    @endif
-
+                                                    <a href="{{ route('pesanan.edit', encrypt($item->id)) }}" data-toggle="tooltip" class="btn btn-link btn-primary" data-original-title="Prose Pesanan">
+                                                        <i class="fa fa-recycle"></i>
+                                                    </a>
+                                                    <a href="{{ asset('storage/' . $item->bukti) }}" target="_blank" data-toggle="tooltip" class="btn btn-link btn-success" data-original-title="Lihat Bukti">
+                                                        <i class="fa fa-image"></i>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -145,6 +117,5 @@
             @include('layouts.footer')
             
         </div>
-        
         
         @endsection

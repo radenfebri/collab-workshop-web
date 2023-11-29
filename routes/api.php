@@ -32,6 +32,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     // API PESANAN
     Route::post('checkout', [OrderController::class, 'checkout']);
     Route::get('pesanan', [OrderController::class, 'pesanan']);
+    Route::post('pesanan/upload-bukti', [OrderController::class, 'uploadBukti']);
     Route::delete('pesanan/{id}/delete', [OrderController::class, 'delete']);
 
     // API METODE BAYAR

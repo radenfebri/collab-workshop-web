@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Pesanan Masuk')
+@section('title', 'Transaksi Diproses')
 
 @section('content')
 <div class="main-panel">

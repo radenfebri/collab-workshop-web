@@ -7,6 +7,7 @@ use App\Models\Bank;
 use App\Models\Buku;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PesananController extends Controller
@@ -15,7 +16,7 @@ class PesananController extends Controller
     {
         $this->middleware('cekRole:Admin');
     }
-    
+
     public function index()
     {
         $data = Order::latest()->get();
@@ -38,9 +39,12 @@ class PesananController extends Controller
     public function show($id)
     {
         $data = Order::findOrFail(decrypt($id));
+        if ($data->bukti) {
+            Storage::delete($data->bukti);
+        }
         $data->delete();
 
-        Alert::success('Berhasil', 'Data Berhasil tidak diproses');
+        Alert::success('Berhasil', 'Data Berhasil dihapus');
         return back();
     }
 }

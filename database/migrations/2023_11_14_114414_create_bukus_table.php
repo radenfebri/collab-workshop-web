@@ -19,7 +19,7 @@ return new class extends Migration
             $table->longText('description');
             $table->string('original_price');
             $table->string('selling_price')->nullable();
-            $table->text('cover');
+            $table->string('cover');
             $table->string('qty');
             $table->tinyInteger('popular')->default('0');
             $table->timestamps();

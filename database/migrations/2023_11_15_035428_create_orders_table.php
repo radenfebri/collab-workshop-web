@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('metode');
             $table->string('tracking_no');
             $table->string('total_price');
+            $table->string('bukti')->nullable();
             $table->timestamps();
         });
     }

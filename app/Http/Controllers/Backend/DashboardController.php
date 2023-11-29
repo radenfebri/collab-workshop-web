@@ -21,17 +21,16 @@ class DashboardController extends Controller
     {
         $user = Auth::user()->name;
         $total_user = User::where('role', 'User')->count();
-        $total_admin = User::where('role', 'Admin')->count();
         $buku = Buku::all();
         $bank = Bank::all();
         $buku_habis = Buku::where('qty', '<=', 5)->get();
-        $data = Order::where('status', 0)->latest()->get();
+        $data = Order::where('status', 0)->orwhere('status', 2)->latest()->get();
         $trx_success = Order::where('status', 1)->get();
         $trx_pending = Order::where('status', 0)->get();
+        $trx_review = Order::where('status', 2)->get();
         $total_beli = Order::where('status', 1)->sum('total_price');
 
-
-        return view('backend.dashboard', compact('total_admin', 'user', 'buku_habis', 'buku', 'data', 'total_beli', 'trx_success', 'trx_pending', 'total_user', 'bank'));
+        return view('backend.dashboard', compact('trx_review', 'user', 'buku_habis', 'buku', 'data', 'total_beli', 'trx_success', 'trx_pending', 'total_user', 'bank'));
     }
 
 
@@ -71,5 +70,13 @@ class DashboardController extends Controller
         $data = Order::where('status', 0)->get();
 
         return view('backend.pesanan.selesai', compact('data'));
+    }
+
+
+    public function review()
+    {
+        $data = Order::where('status', 2)->get();
+
+        return view('backend.pesanan.review', compact('data'));
     }
 }

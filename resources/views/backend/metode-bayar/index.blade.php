@@ -66,7 +66,7 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group form-group-default">
                                                             <label>Nama Bank<span style="color: red">*</span></label>
-                                                            <input name="nama_bank" type="text" class="form-control @error ('nama_bank') is-invalid @enderror" value="{{ old('nama_bank') }}" placeholder="Nama Kategori" >
+                                                            <input name="nama_bank" type="text" class="form-control @error ('nama_bank') is-invalid @enderror" value="{{ old('nama_bank') }}" placeholder="Nama Bank" >
                                                             @error('nama_bank')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -78,7 +78,7 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group form-group-default">
                                                             <label>No Rekening<span style="color: red">*</span></label>
-                                                            <input name="no_rek" type="number" class="form-control @error ('no_rek') is-invalid @enderror" value="{{ old('no_rek') }}" placeholder="Nama Kategori" >
+                                                            <input name="no_rek" type="number" class="form-control @error ('no_rek') is-invalid @enderror" value="{{ old('no_rek') }}" placeholder="No Rekening" >
                                                             @error('no_rek')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>

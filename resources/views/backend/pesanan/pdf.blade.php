@@ -30,6 +30,9 @@
         .success {
             color: green;
         }
+        .review {
+            color: blue;
+        }
         .processing {
             color: red;
         }
@@ -78,7 +81,9 @@
                     <td>
                         @if ($item->status == 1)
                             <span class="success">Berhasil</span>
-                        @else
+                        @elseif ($item->status == 2)
+                            <span class="review">Review</span>
+                        @elseif ($item->status == 0)
                             <span class="processing">Proses</span>
                         @endif
                     </td>

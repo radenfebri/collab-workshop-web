@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller
 {
@@ -102,6 +103,42 @@ class OrderController extends Controller
             ], 500);
         }
     }
+
+
+    public function uploadBukti(Request $request)
+    {
+        try {
+            $bukuId = $request->input('buku_id');
+            $request->validate([
+                'bukti' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+
+            if ($request->hasFile('bukti')) {
+                $buktiName = date('d-m-Y-H-i-s') . '_' . $request->file('bukti')->getClientOriginalName();
+                $buktiPath = $request->file('bukti')->storeAs('bukti-bayar', $buktiName);
+
+                $order = Order::findOrFail($bukuId);
+
+                if ($order->bukti) {
+                    Storage::delete($order->bukti);
+                }
+
+                $order->bukti = $buktiPath;
+                $order->status = 2;
+                $order->save();
+
+                return response()->json(['message' => 'Data berhasil diupload'], 200);
+            }
+
+            return response()->json(['error' => 'Tidak ada file yang diunggah'], 400);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage(),
+            ], 500);
+        }
+    }
+
 
     public function delete($id)
     {

@@ -149,18 +149,16 @@
                                             <td><a href="{{ route('show.histori-pesanan', encrypt($item->id)) }}" style="text-decoration:none">{{ $item->buku->name }}</a></td>
                                             <td>
                                                 <a href="{{ route('show.histori-pesanan', encrypt($item->id)) }}" style="text-decoration:none">
-                                                    @if ($item->buku->selling_price == null)
-                                                    Rp. {{ number_format($item->buku->original_price) }} 
-                                                    @else
-                                                    RP. {{ number_format($item->buku->selling_price) }} 
-                                                    @endif
+                                                    RP. {{ number_format($item->total_price) }} 
                                                 </a>
                                             </td>
                                             <td>
                                                 <a href="{{ route('show.histori-pesanan', encrypt($item->id)) }}" style="text-decoration:none">
                                                     @if ($item->status == 1)
                                                     <span style="color: green">Berhasil</span>
-                                                    @else
+                                                    @elseif($item->status == 2)
+                                                    <span style="color: blue">Review</span>
+                                                    @elseif($item->status == 0)
                                                     <span style="color: red">Proses</span>
                                                     @endif
                                                 </a>
