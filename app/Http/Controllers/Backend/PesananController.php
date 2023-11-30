@@ -56,7 +56,7 @@ class PesananController extends Controller
             'status' => '3',
         ]);
         $buku = Buku::findOrFail($data->buku_id);
-        $buku->qty += 1;
+        $buku->increment('qty');
         $data->save();
         Alert::success('Berhasil', 'Data berhasil ditolak');
         return back();

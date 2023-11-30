@@ -147,7 +147,8 @@ class OrderController extends Controller
             if (!$data) {
                 return response()->json(['message' => 'Data not found'], 404);
             }
-
+            $buku = Buku::findOrFail($data->buku_id);
+            $buku->increment('qty');
             $data->delete();
 
             return response()->json(['message' => 'Data deleted successfully'], 200);

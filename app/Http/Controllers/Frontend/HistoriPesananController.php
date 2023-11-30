@@ -38,7 +38,7 @@ class HistoriPesananController extends Controller
             Storage::delete($data->bukti);
         }
         $buku = Buku::findOrFail($data->buku_id);
-        $buku->qty += 1;
+        $buku->increment('qty');
         $buku->save();
         $data->delete();
 
