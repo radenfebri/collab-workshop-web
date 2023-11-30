@@ -9,7 +9,7 @@
             <div class="page-inner py-5">
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
-                        <h2 class="text-white pb-2 fw-bold">Histori Pesanan, {{ $user }}</h2>
+                        <h2 class="text-white pb-2 fw-bold">Pesanan Proses, {{ $user }}</h2>
                         <h5 class="text-white op-7 mb-2">Total Pesanan : {{ $data->count() }}</h5>
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">
@@ -92,11 +92,19 @@
                                                     
                                                     @if ($item->status == 1)
                                                         
-                                                    @else
-                                                    <a href="{{ route('destroy.histori-pesanan', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Buku"
-                                                        onclick="return confirm('Apakah anda yakin batalkan pesanan {{ $item->name }} ?')">
-                                                        <i class="fa fa-times"></i>
-                                                    </a>
+                                                    @elseif($item->status == 2)
+                                                        <a href="{{ route('histori-pesanan-bukti', encrypt($item->id)) }}" type="button" data-toggle="tooltip" class="btn btn-link btn-success btn-lg" data-original-title="Upload Bukti">
+                                                            <i class="fa fa-upload"></i>
+                                                        </a>
+                                                    @elseif($item->status == 0)
+                                                        <a href="{{ route('histori-pesanan-bukti', encrypt($item->id)) }}" type="button" data-toggle="tooltip" class="btn btn-link btn-success btn-lg" data-original-title="Upload Bukti">
+                                                            <i class="fa fa-upload"></i>
+                                                        </a>
+
+                                                        <a href="{{ route('destroy.histori-pesanan', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Buku"
+                                                            onclick="return confirm('Apakah anda yakin batalkan pesanan {{ $item->name }} ?')">
+                                                            <i class="fa fa-times"></i>
+                                                        </a>
                                                     @endif
                                                 </div>
                                             </td>

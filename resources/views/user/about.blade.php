@@ -33,7 +33,12 @@
                                 <div class="col-12 col-md-12">
                                     <div class="tab-content" id="v-pills-without-border-tabContent">
                                         <div class="tab-pane fade show active" id="v-pills-home-nobd" role="tabpanel" aria-labelledby="v-pills-home-tab-nobd">
-                                            <p>{{ $data->text }}.</p>
+                                            <p>
+                                                @if ($data != null)
+                                                    {{ $data->text }}
+                                                @else
+                                                @endif
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

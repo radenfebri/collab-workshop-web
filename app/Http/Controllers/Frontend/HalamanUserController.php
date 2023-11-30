@@ -21,11 +21,12 @@ class HalamanUserController extends Controller
         $user = Auth::user()->name;
         $buku = Buku::all();
         $data = Order::where('user_id', $user_id)->where('status', 0)->orWhere('status', 2)->latest()->get();
-        $bukusayasukses = Order::where('user_id', $user_id)->where('status', 1)->latest()->get();
-        $bukusaya = Order::where('user_id', $user_id)->latest()->get();
-        $total_beli = Order::where('user_id', $user_id)->where('status', 1)->join('bukus', 'orders.buku_id', '=', 'bukus.id')->sum('bukus.original_price');
+        $proses = Order::where('user_id', $user_id)->where('status', 0)->latest()->get();
+        $berhasil = Order::where('user_id', $user_id)->where('status', 1)->latest()->get();
+        $review = Order::where('user_id', $user_id)->where('status', 2)->latest()->get();
+        $tolak = Order::where('user_id', $user_id)->where('status', 3)->latest()->get();
 
-        return view('user.user-dashboard', compact('user', 'buku', 'data', 'bukusaya', 'total_beli', 'bukusayasukses'));
+        return view('user.user-dashboard', compact('user', 'buku', 'data', 'proses', 'review', 'tolak', 'berhasil'));
 
     }
 }

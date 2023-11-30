@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Transaksi Diproses')
+@section('title', 'Transaksi Tolak')
 
 @section('content')
 <div class="main-panel">
@@ -44,8 +44,8 @@
 
                             <div class="table-responsive mb-3">
                                 <div class="ml-md-auto py-2 py-md-0">
-                                    <a href="{{ route('exportPDFProses') }}" class="btn btn-sm btn-warning" target="_blank">
-                                        <i class="fa fa-file-pdf"></i> Export Laporan Proses
+                                    <a href="{{ route('exportPDFTolak') }}" class="btn btn-sm btn-danger" target="_blank">
+                                        <i class="fa fa-file-pdf"></i> Export Laporan Tolak
                                     </a>
                                 </div>
                             </div>
@@ -61,7 +61,6 @@
                                             <th>Metode</th>
                                             <th>Kode Pesanan</th>
                                             <th>Status</th>
-                                            <th style="width: 10%">Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -73,7 +72,6 @@
                                             <th>Metode</th>
                                             <th>Kode Pesanan</th>
                                             <th>Status</th>
-                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -86,23 +84,7 @@
                                             <td>{{ $item->bank->nama_bank }}</td>
                                             <td>{{ $item->tracking_no }} </td>
                                             <td>
-                                                <span style="color: black">Proses</span>
-                                            </td>
-                                            <td>
-                                                <div class="form-button-action">
-                                                    <a href="{{ route('pesanan.edit', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Prose Pesanan"
-                                                        onclick="return confirm('Anda yakin akan memproses pesanan #{{ $item->tracking_no }}? Belum ada bukti pembayaran!')">
-                                                        <i class="fa fa-recycle"></i>
-                                                    </a>
-                                                    <a href="{{ route('pesanan-tolak', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-warning btn-lg" data-original-title="Tolak Pesanan"
-                                                        onclick="return confirm('Anda yakin akan menolak pesanan #{{ $item->tracking_no }}?')">
-                                                        <i class="fa fa-times"></i>
-                                                    </a>
-                                                    <a href="{{ route('pesanan.show', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Pesanan"
-                                                        onclick="return confirm('Apakah anda yakin batalkan pesanan {{ $item->name }} ?')">
-                                                        <i class="fa fa fa-trash"></i>
-                                                    </a>
-                                                </div>
+                                                <span style="color: red">Tolak</span>
                                             </td>
                                         </tr>
                                         @endforeach

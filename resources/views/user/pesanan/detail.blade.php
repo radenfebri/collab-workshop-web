@@ -147,6 +147,8 @@
                                                     $statusText = 'Review';
                                                 } elseif ($data->status == 0) {
                                                     $statusText = 'Proses';
+                                                }  elseif ($data->status == 3) {
+                                                    $statusText = 'Tolak';
                                                 }
                                             @endphp
                                             <input class="form-control" value="{{ $statusText }}">

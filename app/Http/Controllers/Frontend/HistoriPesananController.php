@@ -21,19 +21,25 @@ class HistoriPesananController extends Controller
         $bank = Bank::all();
         $data = Order::where('user_id', $user_id)->latest()->get();
 
-        return view('user.histori-pesanan', compact('data', 'user', 'buku', 'bank'));
+        return view('user.pesanan.histori-pesanan', compact('data', 'user', 'buku', 'bank'));
     }
 
     public function show($id)
     {
         $data = Order::findOrFail(decrypt($id));
         $buku = Buku::all();
-        return view('user.detail', compact('data', 'buku'));
+        return view('user.pesanan.detail', compact('data', 'buku'));
     }
 
     public function destroy($id)
     {
         $data = Order::findOrFail(decrypt($id));
+        if ($data->bukti) {
+            Storage::delete($data->bukti);
+        }
+        $buku = Buku::findOrFail($data->buku_id);
+        $buku->qty += 1;
+        $buku->save();
         $data->delete();
 
         Alert::success('Berhasil', 'Data Berhasil tidak diproses');
@@ -46,17 +52,37 @@ class HistoriPesananController extends Controller
         $user = Auth::user()->name;
         $data = Order::where('user_id', $user_id)->where('status', 1)->latest()->get();
 
-        return view('user.buku-sukses', compact('data', 'user'));
+        return view('user.pesanan.buku-sukses', compact('data', 'user'));
     }
 
 
-    public function pending()
+    public function proses()
     {
         $user_id = Auth::id();
         $user = Auth::user()->name;
         $data = Order::where('user_id', $user_id)->where('status', 0)->latest()->get();
 
-        return view('user.buku-pending', compact('data', 'user'));
+        return view('user.pesanan.buku-proses', compact('data', 'user'));
+    }
+
+
+    public function review()
+    {
+        $user_id = Auth::id();
+        $user = Auth::user()->name;
+        $data = Order::where('user_id', $user_id)->where('status', 2)->latest()->get();
+
+        return view('user.pesanan.buku-review', compact('data', 'user'));
+    }
+
+
+    public function tolak()
+    {
+        $user_id = Auth::id();
+        $user = Auth::user()->name;
+        $data = Order::where('user_id', $user_id)->where('status', 3)->latest()->get();
+
+        return view('user.pesanan.buku-tolak', compact('data', 'user'));
     }
 
 
@@ -64,7 +90,7 @@ class HistoriPesananController extends Controller
     {
         $data = Order::findOrFail(decrypt($id));
         $buku = Buku::all();
-        return view('user.upload-bukti', compact('data', 'buku'));
+        return view('user.pesanan.upload-bukti', compact('data', 'buku'));
     }
 
 

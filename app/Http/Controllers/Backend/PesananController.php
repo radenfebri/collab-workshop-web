@@ -47,4 +47,18 @@ class PesananController extends Controller
         Alert::success('Berhasil', 'Data Berhasil dihapus');
         return back();
     }
+
+
+    public function tolak($id)
+    {
+        $data = Order::findOrFail(decrypt($id));
+        $data->update([
+            'status' => '3',
+        ]);
+        $buku = Buku::findOrFail($data->buku_id);
+        $buku->qty += 1;
+        $data->save();
+        Alert::success('Berhasil', 'Data berhasil ditolak');
+        return back();
+    }
 }

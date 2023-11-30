@@ -40,7 +40,7 @@ class ExportLaporanController extends Controller
     }
 
 
-    public function exportPDFPending()
+    public function exportPDFProses()
     {
         $data = Order::where('status', 0)->latest()->get();
         $buku = Buku::all();
@@ -55,6 +55,18 @@ class ExportLaporanController extends Controller
     public function exportPDFReview()
     {
         $data = Order::where('status', 2)->latest()->get();
+        $buku = Buku::all();
+        $bank = Bank::all();
+
+        $pdf = PDF::loadView('backend.pesanan.pdf', compact('data', 'buku', 'bank'));
+        $pdf->setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+        return $pdf->stream('laporan_penjualan.pdf');
+    }
+    
+
+    public function exportPDFTolak()
+    {
+        $data = Order::where('status', 3)->latest()->get();
         $buku = Buku::all();
         $bank = Bank::all();
 

@@ -86,19 +86,23 @@
                                             <td>{{ $item->bank->nama_bank }}</td>
                                             <td>{{ $item->tracking_no }} </td>
                                             <td>
-                                                @if ($item->status == 1)
-                                                <span style="color: green">Berhasil</span>
-                                                @elseif ($item->status == 2)
                                                 <span style="color: blue">Review</span>
-                                                @elseif ($item->status == 0)
-                                                <span style="color: red">Proses</span>
-                                                @endif
                                             </td>
                                             <td>
                                                 <div class="form-button-action">
                                                     <a href="{{ route('pesanan.edit', encrypt($item->id)) }}" data-toggle="tooltip" class="btn btn-link btn-primary" data-original-title="Prose Pesanan">
                                                         <i class="fa fa-recycle"></i>
                                                     </a>
+
+                                                    <a href="{{ route('pesanan-tolak', encrypt($item->id)) }}" data-toggle="tooltip" class="btn btn-link btn-warning" data-original-title="Tolak Pesanan">
+                                                        <i class="fa fa-times"></i>
+                                                    </a>
+                    
+                                                    <a href="{{ route('pesanan.show', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Pesanan"
+                                                        onclick="return confirm('Apakah anda yakin batalkan pesanan {{ $item->name }} ?')">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
+
                                                     <a href="{{ asset('storage/' . $item->bukti) }}" target="_blank" data-toggle="tooltip" class="btn btn-link btn-success" data-original-title="Lihat Bukti">
                                                         <i class="fa fa-image"></i>
                                                     </a>

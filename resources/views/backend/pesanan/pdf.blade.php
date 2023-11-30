@@ -36,6 +36,11 @@
         .processing {
             color: red;
         }
+
+        .tolak {
+            color: black;
+        }
+
         .date-range {
             text-align: right;
             margin-top: 10px;
@@ -85,6 +90,8 @@
                             <span class="review">Review</span>
                         @elseif ($item->status == 0)
                             <span class="processing">Proses</span>
+                        @elseif ($item->status == 3)
+                            <span class="tolak">Tolak</span>
                         @endif
                     </td>
                 </tr>

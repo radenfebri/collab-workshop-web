@@ -84,11 +84,7 @@
                                             <td>{{ $item->bank->nama_bank }}</td>
                                             <td>{{ $item->tracking_no }} </td>
                                             <td>
-                                                @if ($item->status == 1)
-                                                    <span style="color: green">Berhasil</span>
-                                                @else
-                                                    <span style="color: red">Proses</span>
-                                                @endif
+                                                <span style="color: green">Berhasil</span>
                                             </td>
                                         </tr>
                                         @endforeach

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Transaksi Diproses')
+@section('title', "Histori Pesanan $user")
 
 @section('content')
 <div class="main-panel">
@@ -9,7 +9,7 @@
             <div class="page-inner py-5">
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
-                        <h2 class="text-white pb-2 fw-bold">@yield('title')</h2>
+                        <h2 class="text-white pb-2 fw-bold">Histori Pesanan, {{ $user }}</h2>
                         <h5 class="text-white op-7 mb-2">Total Pesanan : {{ $data->count() }}</h5>
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">
@@ -41,23 +41,14 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="table-responsive mb-3">
-                                <div class="ml-md-auto py-2 py-md-0">
-                                    <a href="{{ route('exportPDFProses') }}" class="btn btn-sm btn-warning" target="_blank">
-                                        <i class="fa fa-file-pdf"></i> Export Laporan Proses
-                                    </a>
-                                </div>
-                            </div>
-
+                            
                             <div class="table-responsive">
                                 <table id="add-row" class="display table table-striped table-hover" >
                                     <thead>
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Buku</th>
-                                            <th>Nama Pembeli</th>
-                                            <th>Harga Buku</th>
+                                            <th>Total Bayar</th>
                                             <th>Metode</th>
                                             <th>Kode Pesanan</th>
                                             <th>Status</th>
@@ -68,8 +59,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Buku</th>
-                                            <th>Nama Pembeli</th>
-                                            <th>Harga Buku</th>
+                                            <th>Total Bayar</th>
                                             <th>Metode</th>
                                             <th>Kode Pesanan</th>
                                             <th>Status</th>
@@ -81,27 +71,42 @@
                                         <tr>
                                             <td>{{ $no + 1 }} </td>
                                             <td>{{ $item->buku->name }}</td>
-                                            <td>{{ $item->name }}</td>
                                             <td>{{ number_format($item->total_price) }}</td>
                                             <td>{{ $item->bank->nama_bank }}</td>
                                             <td>{{ $item->tracking_no }} </td>
                                             <td>
-                                                <span style="color: black">Proses</span>
+                                                @if ($item->status == 0)
+                                                    <span style="color: black">Proses</span>
+                                                @elseif($item->status == 1)
+                                                    <span style="color: green">Berhasil</span>
+                                                @elseif($item->status == 2)
+                                                    <span style="color: blue">Review</span>
+                                                @elseif($item->status == 3)
+                                                    <span style="color: red">Tolak</span>
+                                                @endif
                                             </td>
                                             <td>
                                                 <div class="form-button-action">
-                                                    <a href="{{ route('pesanan.edit', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Prose Pesanan"
-                                                        onclick="return confirm('Anda yakin akan memproses pesanan #{{ $item->tracking_no }}? Belum ada bukti pembayaran!')">
-                                                        <i class="fa fa-recycle"></i>
+                                                    <a href="{{ route('show.histori-pesanan', encrypt($item->id)) }}" type="button" data-toggle="tooltip" class="btn btn-link btn-primary btn-lg" data-original-title="Detail Pesanan">
+                                                        <i class="fa fa-eye"></i>
                                                     </a>
-                                                    <a href="{{ route('pesanan-tolak', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-warning btn-lg" data-original-title="Tolak Pesanan"
-                                                        onclick="return confirm('Anda yakin akan menolak pesanan #{{ $item->tracking_no }}?')">
-                                                        <i class="fa fa-times"></i>
-                                                    </a>
-                                                    <a href="{{ route('pesanan.show', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Pesanan"
-                                                        onclick="return confirm('Apakah anda yakin batalkan pesanan {{ $item->name }} ?')">
-                                                        <i class="fa fa fa-trash"></i>
-                                                    </a>
+                                                    
+                                                    @if ($item->status == 1)
+                                                        
+                                                    @elseif($item->status == 2)
+                                                        <a href="{{ route('histori-pesanan-bukti', encrypt($item->id)) }}" type="button" data-toggle="tooltip" class="btn btn-link btn-success btn-lg" data-original-title="Upload Bukti">
+                                                            <i class="fa fa-upload"></i>
+                                                        </a>
+                                                    @elseif($item->status == 0)
+                                                        <a href="{{ route('histori-pesanan-bukti', encrypt($item->id)) }}" type="button" data-toggle="tooltip" class="btn btn-link btn-success btn-lg" data-original-title="Upload Bukti">
+                                                            <i class="fa fa-upload"></i>
+                                                        </a>
+
+                                                        <a href="{{ route('destroy.histori-pesanan', encrypt($item->id)) }}" method="POST" type="button" data-toggle="tooltip" class="btn btn-link btn-danger btn-lg" data-original-title="Batalkan Buku"
+                                                            onclick="return confirm('Apakah anda yakin batalkan pesanan {{ $item->name }} ?')">
+                                                            <i class="fa fa-times"></i>
+                                                        </a>
+                                                    @endif
                                                 </div>
                                             </td>
                                         </tr>
@@ -117,5 +122,7 @@
             @include('layouts.footer')
             
         </div>
+        
+
         
         @endsection

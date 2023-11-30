@@ -38,39 +38,18 @@
         <div class="page-inner mt--5">
             <div class="row">
                 <div class="col-sm-6 col-md-3">
-                    <a href="{{ route('buku.index') }}" style="text-decoration:none" >
-                        <div class="card card-stats card-round">
-                            <div class="card-body ">
-                                <div class="row align-items-center">
-                                    <div class="col-icon">
-                                        <div class="icon-big text-center icon-primary bubble-shadow-small">
-                                            <i class="fas fa-book"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col col-stats ml-3 ml-sm-0">
-                                        <div class="numbers">
-                                            <p class="card-category">Total Buku</p>
-                                            <h3 class="card-title">{{ $buku->count() }}</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-3">
                     <a href="{{ route('trx-selesai') }}" style="text-decoration:none" >
                         <div class="card card-stats card-round">
                             <div class="card-body">
                                 <div class="row align-items-center">
                                     <div class="col-icon">
                                         <div class="icon-big text-center icon-success bubble-shadow-small">
-                                            <i class="fas fa-check"></i>
+                                            <i class="fas fa-money-bill"></i>
                                         </div>
                                     </div>
                                     <div class="col col-stats ml-3 ml-sm-0">
                                         <div class="numbers">
-                                            <p class="card-category">Transaksi Selesai</p>
+                                            <p class="card-category">Transaksi Sukses</p>
                                             <h4 class="card-title">{{ $trx_success->count() }}</h4>
                                         </div>
                                     </div>
@@ -85,14 +64,14 @@
                             <div class="card-body">
                                 <div class="row align-items-center">
                                     <div class="col-icon">
-                                        <div class="icon-big text-center icon-danger bubble-shadow-small">
+                                        <div class="icon-big text-center icon-warning bubble-shadow-small">
                                             <i class="fas fa-clock"></i>
                                         </div>
                                     </div>
                                     <div class="col col-stats ml-3 ml-sm-0">
                                         <div class="numbers">
                                             <p class="card-category">Transaksi Diproses</p>
-                                            <h4 class="card-title">{{ $trx_pending->count() }}</h4>
+                                            <h4 class="card-title">{{ $trx_proses->count() }}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -103,17 +82,38 @@
                 <div class="col-sm-6 col-md-3">
                     <a href="{{ route('trx-review') }}" style="text-decoration:none" >
                         <div class="card card-stats card-round">
-                            <div class="card-body">
+                            <div class="card-body ">
                                 <div class="row align-items-center">
                                     <div class="col-icon">
-                                        <div class="icon-big text-center icon-info bubble-shadow-small">
+                                        <div class="icon-big text-center icon-primary bubble-shadow-small">
                                             <i class="fas fa-search"></i>
                                         </div>
                                     </div>
                                     <div class="col col-stats ml-3 ml-sm-0">
                                         <div class="numbers">
-                                            <p class="card-category">Pesanan Direview</p>
-                                            <h4 class="card-title">{{ $trx_review->count() }}</h4>
+                                            <p class="card-category">Transasksi Review</p>
+                                            <h3 class="card-title">{{ $trx_review->count() }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <a href="{{ route('trx-tolak') }}" style="text-decoration:none">
+                        <div class="card card-stats card-round">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-icon">
+                                        <div class="icon-big text-center icon-danger bubble-shadow-small">
+                                            <i class="fas fa-times-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col col-stats ml-3 ml-sm-0">
+                                        <div class="numbers">
+                                            <p class="card-category">Transaksi Ditolak</p>
+                                            <h4 class="card-title">{{ $trx_tolak->count() }}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -123,8 +123,6 @@
                 </div>
 
 
-                
-                
                 <div class="col-sm-6 col-md-3">
                     <a href="{{ route('metode-bayar.index') }}" style="text-decoration:none" >
                     <div class="card card-stats card-round">
@@ -144,6 +142,27 @@
                             </div>
                         </div>
                     </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <a href="{{ route('buku.index') }}" style="text-decoration:none" >
+                        <div class="card card-stats card-round">
+                            <div class="card-body ">
+                                <div class="row align-items-center">
+                                    <div class="col-icon">
+                                        <div class="icon-big text-center icon-primary bubble-shadow-small">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col col-stats ml-3 ml-sm-0">
+                                        <div class="numbers">
+                                            <p class="card-category">Total Buku</p>
+                                            <h3 class="card-title">{{ $buku->count() }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-3">
@@ -188,28 +207,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-3">
-                    <a href="{{ route('total-user') }}" style="text-decoration:none" >
-                        <div class="card card-stats card-round">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-icon">
-                                        <div class="icon-big text-center icon-success bubble-shadow-small">
-                                            <i class="fas fa-users"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col col-stats ml-3 ml-sm-0">
-                                        <div class="numbers">
-                                            <p class="card-category">Total User</p>
-                                            <h4 class="card-title">{{ $total_user }}</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
+
             </div>
             
             <div class="row">
@@ -244,12 +242,11 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('pesanan.index') }}" style="text-decoration:none">
-                                                    @if ($item->status == 1)
-                                                    <span style="color: green">Berhasil</span>
-                                                    @elseif ($item->status == 2)
+
+                                                    @if ($item->status == 2)
                                                     <span style="color: blue">Review</span>
                                                     @elseif ($item->status == 0)
-                                                    <span style="color: red">Proses</span>
+                                                    <span style="color: black">Proses</span>
                                                     @endif
                                                 </a>
                                             </td>

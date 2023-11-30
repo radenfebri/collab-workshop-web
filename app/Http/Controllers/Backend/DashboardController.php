@@ -8,6 +8,7 @@ use App\Models\Buku;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DashboardController extends Controller
 {
@@ -26,11 +27,12 @@ class DashboardController extends Controller
         $buku_habis = Buku::where('qty', '<=', 5)->get();
         $data = Order::where('status', 0)->orwhere('status', 2)->latest()->get();
         $trx_success = Order::where('status', 1)->get();
-        $trx_pending = Order::where('status', 0)->get();
+        $trx_proses = Order::where('status', 0)->get();
         $trx_review = Order::where('status', 2)->get();
+        $trx_tolak = Order::where('status', 3)->get();
         $total_beli = Order::where('status', 1)->sum('total_price');
 
-        return view('backend.dashboard', compact('trx_review', 'user', 'buku_habis', 'buku', 'data', 'total_beli', 'trx_success', 'trx_pending', 'total_user', 'bank'));
+        return view('backend.dashboard', compact('trx_review', 'user', 'buku_habis', 'buku', 'data', 'total_beli', 'trx_success', 'trx_proses', 'trx_tolak', 'total_user', 'bank'));
     }
 
 
@@ -69,7 +71,15 @@ class DashboardController extends Controller
     {
         $data = Order::where('status', 0)->get();
 
-        return view('backend.pesanan.selesai', compact('data'));
+        return view('backend.pesanan.proses', compact('data'));
+    }
+
+
+    public function tolak()
+    {
+        $data = Order::where('status', 3)->get();
+
+        return view('backend.pesanan.tolak', compact('data'));
     }
 
 
