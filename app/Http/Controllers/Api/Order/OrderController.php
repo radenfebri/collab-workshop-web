@@ -32,6 +32,7 @@ class OrderController extends Controller
                     'atas_nama' => $item->bank->atas_nama, // Mengambil nama bank dari relasi
                     'tracking_no' => $item->tracking_no,
                     'total_price' => $item->total_price,
+                    'bukti' => $item->bukti,
                 ];
             });
 
@@ -71,6 +72,7 @@ class OrderController extends Controller
                     'metode' => $bank->id,
                     'tracking_no' => $tracking_no,
                     'total_price' => $total_price,
+                    'bukti' => null,
                 ]);
 
                 $buku->qty -= 1;
