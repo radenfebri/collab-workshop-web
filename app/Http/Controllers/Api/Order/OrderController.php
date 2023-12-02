@@ -110,7 +110,7 @@ class OrderController extends Controller
     public function uploadBukti(Request $request)
     {
         try {
-            $bukuId = $request->input('buku_id');
+            $orderId = $request->input('id');
             $request->validate([
                 'bukti' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
@@ -119,7 +119,7 @@ class OrderController extends Controller
                 $buktiName = date('d-m-Y-H-i-s') . '_' . $request->file('bukti')->getClientOriginalName();
                 $buktiPath = $request->file('bukti')->storeAs('bukti-bayar', $buktiName);
 
-                $order = Order::findOrFail($bukuId);
+                $order = Order::findOrFail($orderId);
 
                 if ($order->bukti) {
                     Storage::delete($order->bukti);
