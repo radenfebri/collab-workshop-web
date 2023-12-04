@@ -317,7 +317,7 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 grid-margin">
                         <h5 class="pb-2">Alamat</h5>
-                        <p class="text-muted">SMKN Mastrip<br>Polije. Istimewa</p>
+                        <p class="text-muted">Jl. Mastrip, Krajan Timur, Sumbersari, Kec. Sumbersari, <br> Kabupaten Jember, Jawa Timur 68121</p>
                         <div class="d-flex justify-content-center justify-content-md-start">
                             <a href="https://facebook.com" target="_blank"><span class="mdi mdi-facebook"></span></a>
                             <a href="https://twitter.com" target="_blank"><span class="mdi mdi-twitter"></span></a>
