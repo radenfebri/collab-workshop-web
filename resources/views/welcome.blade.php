@@ -128,11 +128,11 @@
                             <p class="py-4 m-0 text-muted">Platform Tuku Buku menyediakan akses ke beragam buku yang mencakup berbagai topik, mulai dari pendidikan, bisnis, kesehatan, hingga hobi dan kesenangan.</p>
                             <p class="pb-2 font-weight-medium text-muted">Jelajahi koleksi buku yang tersedia dan temukan jawaban, wawasan baru, serta solusi praktis yang akan membantu Anda mencapai tujuan yang diinginkan.</p>
                         </div>
-                        <button class="btn btn-info">Selengkapnya..</button>
+                        <a href="{{ route('login') }}" class="btn btn-info">Selengkapnya..</a>
                     </div>
                 </div>
             </section>     
-            <section class="case-studies" id="case-studies-section">
+            {{-- <section class="case-studies" id="case-studies-section">
                 <div class="row grid-margin">
                     <div class="col-12 text-center pb-5">
                         <h2>Kategori Buku</h2>
@@ -223,7 +223,7 @@
                         </div>
                     </div>
                 </div>
-            </section>     
+            </section>      --}}
             <section class="customer-feedback" id="feedback-section">
                 <div class="row">
                     <div class="col-12 text-center pb-5">
@@ -234,99 +234,44 @@
                         <div class="card customer-cards">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="{{ asset('template-frontend') }}/images/face2.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
+                                    <img src="{{ asset('template-frontend') }}/images/febri.jpg" width="89" height="89" alt="" class="img-customer">
+                                    <p class="m-0 py-3 text-muted">Membangun aplikasi dengan ide-ide segar dan inovatif.</p>
                                     <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Raden Febri</h6>
-                                    <h6 class="customer-designation text-muted m-0">Founder</h6>
+                                    <h6 class="card-title pt-3">Febri</h6>
+                                    <h6 class="customer-designation text-muted m-0">Web Developer</h6>
                                 </div>
                             </div>
                         </div>
                         <div class="card customer-cards">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="{{ asset('template-frontend') }}/images/face3.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
+                                    <img src="{{ asset('template-frontend') }}/images/sendy.png" width="89" height="89" alt="" class="img-customer">
+                                    <p class="m-0 py-3 text-muted">Mengembangkan aplikasi dengan fokus pada performa dan penggunaan sumber daya yang optimal.</p>
                                     <div class="content-divider m-auto"></div>
                                     <h6 class="card-title pt-3">Sendy</h6>
-                                    <h6 class="customer-designation text-muted m-0">CEO</h6>
+                                    <h6 class="customer-designation text-muted m-0">App Developer</h6>
                                 </div>
                             </div>
                         </div>
                         <div class="card customer-cards">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="{{ asset('template-frontend') }}/images/face20.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Sayif</h6>
-                                    <h6 class="customer-designation text-muted m-0">Senior Search Engine</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="{{ asset('template-frontend') }}/images/face15.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Ilmia</h6>
-                                    <h6 class="customer-designation text-muted m-0">Tata Kelola IT</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="{{ asset('template-frontend') }}/images/face16.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Cody Lambert</h6>
-                                    <h6 class="customer-designation text-muted m-0">Senior Mobile Developer</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="{{ asset('template-frontend') }}/images/face1.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Tony Martinez</h6>
-                                    <h6 class="customer-designation text-muted m-0">Senior Web Developer</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="{{ asset('template-frontend') }}/images/face2.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-                                    <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Tony Martinez</h6>
-                                    <h6 class="customer-designation text-muted m-0">Senior DevOps</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card customer-cards">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <img src="{{ asset('template-frontend') }}/images/face3.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
+                                    <img src="{{ asset('template-frontend') }}/images/sayif.jpg" width="89" height="89" alt="" class="img-customer">
+                                    <p class="m-0 py-3 text-muted">Merespons dengan cepat dan tanggap terhadap kebutuhan pengguna dan perubahan pasar.</p>
                                     <div class="content-divider m-auto"></div>
                                     <h6 class="card-title pt-3">Sophia Armstrong</h6>
-                                    <h6 class="customer-designation text-muted m-0">Projek Manager</h6>
+                                    <h6 class="customer-designation text-muted m-0">Web Developer</h6>
                                 </div>
                             </div>
                         </div>
                         <div class="card customer-cards">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="{{ asset('template-frontend') }}/images/face20.jpg" width="89" height="89" alt="" class="img-customer">
-                                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
+                                    <img src="{{ asset('template-frontend') }}/images/ilmia.jpg" width="89" height="89" alt="" class="img-customer">
+                                    <p class="m-0 py-3 text-muted">Menyediakan pengalaman pengguna yang berkualitas tinggi melalui fitur-fitur yang handal dan desain yang menarik.</p>
                                     <div class="content-divider m-auto"></div>
                                     <h6 class="card-title pt-3">Cody Lambert</h6>
-                                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
+                                    <h6 class="customer-designation text-muted m-0">App Developer</h6>
                                 </div>
                             </div>
                         </div>
@@ -364,11 +309,11 @@
                         </div>   
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 grid-margin">
-                        <h5 class="pb-2">Pedoman</h5>
-                        <a href=""><p class="m-0 pb-2">Terms</p></a>   
-                        <a href="" ><p class="m-0 pt-1 pb-2">Privacy policy</p></a> 
-                        <a href=""><p class="m-0 pt-1 pb-2">Cookie Policy</p></a> 
-                        <a href=""><p class="m-0 pt-1">Discover</p></a> 
+                        <h5 class="pb-2">Links</h5>
+                        <a href="#header-section"><p class="m-0 pb-2">Home</p></a>   
+                        <a href="#features-section" ><p class="m-0 pt-1 pb-2">About</p></a> 
+                        <a href="#digital-marketing-section"><p class="m-0 pt-1 pb-2">Blog</p></a> 
+                        <a href="#feedback-section"><p class="m-0 pt-1">Developer</p></a> 
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 grid-margin">
                         <h5 class="pb-2">Alamat</h5>
