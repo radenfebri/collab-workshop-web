@@ -84,7 +84,7 @@
                             <img src="{{ asset('template-frontend') }}/images/Group12.svg" alt="" class="img-icons">
                             <h5 class="py-3">Platform<br>Stabil</h5>
                             <p class="text-muted">Website dan Aplikasi yang sudah teruji, memiliki kecepatan yang handal.</p>
-                            <a href=""><p class="readmore-link">Selengkapnya..</p></a>  
+                            {{-- <a href=""><p class="readmore-link">Selengkapnya..</p></a>   --}}
                         </div>
                     </div>
                     <div class="grid-margin d-flex justify-content-center">
@@ -92,7 +92,7 @@
                             <img src="{{ asset('template-frontend') }}/images/Group7.svg" alt="" class="img-icons">
                             <h5 class="py-3">Harga Buku<br>Terjangkau</h5>
                             <p class="text-muted">Selain banyak macam buku, juga memiliki harga yang cukup terjangkau relatif murah.</p>
-                            <a href=""><p class="readmore-link">Selengkaonya..</p></a>
+                            {{-- <a href=""><p class="readmore-link">Selengkaonya..</p></a> --}}
                         </div>
                     </div>
                     <div class="grid-margin d-flex justify-content-end">
@@ -100,7 +100,7 @@
                             <img src="{{ asset('template-frontend') }}/images/Group5.svg" alt="" class="img-icons">
                             <h5 class="py-3">Transaksi<br>Mudah</h5>
                             <p class="text-muted">Berbagai macam metode pembayaran yang disediakan meliputi bank transfer indonesia.</p>
-                            <a href=""><p class="readmore-link">Selengkapnya..</p></a>
+                            {{-- <a href=""><p class="readmore-link">Selengkapnya..</p></a> --}}
                         </div>
                     </div>
                 </div>
