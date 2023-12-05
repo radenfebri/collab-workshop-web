@@ -259,7 +259,7 @@
                                     <img src="{{ asset('template-frontend') }}/images/sayif.jpg" width="89" height="89" alt="" class="img-customer">
                                     <p class="m-0 py-3 text-muted">Merespons dengan cepat dan tanggap terhadap kebutuhan pengguna dan perubahan pasar.</p>
                                     <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Sophia Armstrong</h6>
+                                    <h6 class="card-title pt-3">Sayif</h6>
                                     <h6 class="customer-designation text-muted m-0">Web Developer</h6>
                                 </div>
                             </div>
@@ -270,7 +270,7 @@
                                     <img src="{{ asset('template-frontend') }}/images/ilmia.jpg" width="89" height="89" alt="" class="img-customer">
                                     <p class="m-0 py-3 text-muted">Menyediakan pengalaman pengguna yang berkualitas tinggi melalui fitur-fitur yang handal dan desain yang menarik.</p>
                                     <div class="content-divider m-auto"></div>
-                                    <h6 class="card-title pt-3">Cody Lambert</h6>
+                                    <h6 class="card-title pt-3">Ilmia</h6>
                                     <h6 class="customer-designation text-muted m-0">App Developer</h6>
                                 </div>
                             </div>
