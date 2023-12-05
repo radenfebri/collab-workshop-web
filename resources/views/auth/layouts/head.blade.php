@@ -13,6 +13,4 @@
     <link href="{{ asset('template-login') }}/src/assets/css/light/authentication/auth-boxed.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
 
-    @vite([])
-    
 </head>
